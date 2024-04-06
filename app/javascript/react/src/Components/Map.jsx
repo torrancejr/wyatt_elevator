@@ -1,38 +1,43 @@
 import React from 'react';
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { useEffect } from 'react';
+import { GoogleMap, useJsApiLoader, Data } from '@react-google-maps/api';
 
-const containerStyle = {
+const mapContainerStyle = {
   width: '2000px',
-  height: '2000px'
+  height: '2000px',
 };
 
 const center = {
-  lat: 39.8914762,
-  lng: -75.2755431
+  lat: 39.9526, // Approximate center of Philadelphia
+  lng: -75.1652,
 };
 
-const locations = [
-  { lat: -3.745, lng: -38.523 },
-  { lat: -3.747, lng: -38.524 },
-  // Add more locations here
-];
-
 function MyMapComponent() {
-  return (
-    <div>
-      <h1>Map!</h1>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-      >
-        {locations.map((location, index) => (
-          <Marker key={index} position={location} />
-        ))}
-      </GoogleMap>
-    </div>
-  );
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: "AIzaSyCgIoB18mtuTJ0C1HI0ThpNShxiJF2jL9I"
+  });
+
+  const onLoad = (map) => {
+    // Load the GeoJSON file
+    map.data.loadGeoJson('/philadelphia.geojson');
+    
+    // Style the GeoJSON features as needed
+    map.data.setStyle({
+      fillColor: 'green',
+      strokeWeight: 1,
+    });
+  };
+
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+    />
+  ) : <></>;
 }
 
-export default React.memo(MyMapComponent);
+export default MyMapComponent;
 
