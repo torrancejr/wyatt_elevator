@@ -12,15 +12,82 @@ const center = {
   lng: -75.1652,
 };
 
-function MyMapComponent() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCgIoB18mtuTJ0C1HI0ThpNShxiJF2jL9I"
-  });
+const customStyles = [
+  {
+      "featureType": "all",
+      "elementType": "labels.text",
+      "stylers": [
+          {
+              "color": "#707070"
+          }
+      ]
+  },
+  {
+      "featureType": "all",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+          {
+              "visibility": "off"
+          }
+      ]
+  },
+  {
+      "featureType": "landscape",
+      "elementType": "all",
+      "stylers": [
+          {
+              "color": "#f9f5ed"
+          }
+      ]
+  },
+  {
+      "featureType": "road.highway",
+      "elementType": "all",
+      "stylers": [
+          {
+              "color": "#f5f5f5"
+          }
+      ]
+  },
+  {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+          {
+              "color": "#c9c9c9"
+          }
+      ]
+  },
+  {
+      "featureType": "water",
+      "elementType": "all",
+      "stylers": [
+          {
+              "color": "#aee0f4"
+          }
+      ]
+  }
+];
+
+const isLoaded = true;
+
+function MyMapComponent(isLoaded={isLoaded}) {
+//   const { isLoaded } = useJsApiLoader({
+//     id: 'google-map-script',
+//     googleMapsApiKey: "AIzaSyCgIoB18mtuTJ0C1HI0ThpNShxiJF2jL9I"
+//   });
+
+    // const { isLoaded } = 'true';
 
   const onLoad = (map) => {
     // Load the GeoJSON file
-    map.data.loadGeoJson('/philadelphia.geojson');
+    map.data.loadGeoJson('/phillydos.geojson');
+    map.data.loadGeoJson('/bucks8.geojson')
+    map.data.loadGeoJson('/deleware-county.geojson')
+    map.data.loadGeoJson('/montgomery.geojson')
+    map.data.loadGeoJson('/south-jersey-2.geojson')
+    map.data.loadGeoJson('/new-castle.geojson')
+    
     
     // Style the GeoJSON features as needed
     map.data.setStyle({
@@ -33,8 +100,9 @@ function MyMapComponent() {
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       center={center}
-      zoom={10}
+      zoom={9.5}
       onLoad={onLoad}
+      options={{ styles: customStyles }} 
     />
   ) : <></>;
 }
