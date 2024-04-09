@@ -32,20 +32,30 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
-import MyMapComponent from "./Map"; 
+import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
+import MyMapComponent from "./Map";
 
 const Hello = () => {
     return <div>Hello, Rails 23!</div>;
   };
   
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('hello');
-    if(container) { // Ensure the container exists
-      const root = ReactDOM.createRoot(container);
-      root.render(<MyMapComponent />);
-    } else {
-      console.error('The target container is not found.');
-    }
-  });
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const container = document.getElementById('hello');
+  //   if(container) { // Ensure the container exists
+  //     const root = ReactDOM.createRoot(container);
+  //     root.render(<MyMapComponent />);
+  //   } else {
+  //     console.error('The target container is not found.');
+  //   }
+  // });
+
+const router = createBrowserRouter([
+  { path: '/', element: <Hello /> },
+  { path: '/elevator-service-area', element: <MyMapComponent /> }
+]);
+
+createRoot(document.getElementById("hello")).render(
+    <RouterProvider router={router} />
+);
 
 export default Hello;
