@@ -3,3 +3,4 @@
 import "./controllers"
 import "./react/src/components/App"
 // import "./react/src/components"
+import "./stylesheets/application.css"
