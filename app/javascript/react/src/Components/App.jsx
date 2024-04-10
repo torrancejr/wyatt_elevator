@@ -34,9 +34,18 @@ import * as ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 import MyMapComponent from "./Map";
+import Header from "../Features/Header";
+
 
 const Hello = () => {
-    return <div>Hello, Rails 23!</div>;
+    return (
+        <div className={container}>
+            <h1 className="text-3xl font-bold underline">
+                Hello world!
+            </h1>;
+        </div>
+    )
+
   };
   
   // document.addEventListener('DOMContentLoaded', () => {
@@ -50,7 +59,7 @@ const Hello = () => {
   // });
 
 const router = createBrowserRouter([
-  { path: '/', element: <Hello /> },
+  { path: '/', element: <Header /> },
   { path: '/elevator-service-area', element: <MyMapComponent /> }
 ]);
 
