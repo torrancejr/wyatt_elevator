@@ -12,7 +12,7 @@ function Homepage() {
                 <Logos />
             </section>
             <footer className="footer">
-                <p>© 2024 My Website</p>
+
             </footer>
         </div>
     );
