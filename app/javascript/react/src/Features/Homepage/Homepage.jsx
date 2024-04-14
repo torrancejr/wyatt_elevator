@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header'
 import Logos from './Logos'
+import Contact from './Contact'
 
 function Homepage() {
     return (
@@ -10,6 +11,9 @@ function Homepage() {
             </header>
             <section className="content">
                 <Logos />
+            </section>
+            <section className="contact">
+                <Contact />
             </section>
             <footer className="footer">
 
