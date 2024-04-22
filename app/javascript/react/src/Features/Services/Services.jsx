@@ -1,29 +1,28 @@
 import React from 'react';
 import Header from '../Header'
-import Logos from './Logos'
-import Contact from './Contact'
-import Stats from './Stats'
 import Footer from "../Footer";
 import Main from './Main'
+import Logos from "../Homepage/Logos";
+import Projects from './Projects'
+import Technical from "./Technical";
 
-function Homepage() {
+function Services() {
     return (
         <div className="homepage">
             <header className="header">
                 <Header />
             </header>
-            <section className="main">
-            <Main />
+            <section className="service-main">
+                <Main />
             </section>
-
-            <section className="content">
-                <Logos isVisible />
+            <section className="service-logos">
+             <Logos />
             </section>
-            <section className="contact">
-                <Contact />
+            <section className='technical'>
+                <Technical />
             </section>
-            <section className="stats">
-                <Stats />
+            <section className="projects">
+                <Projects />
             </section>
             <footer className="footer">
                 <Footer />
@@ -32,4 +31,4 @@ function Homepage() {
     );
 }
 
-export default Homepage;
+export default Services;
