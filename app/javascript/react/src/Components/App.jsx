@@ -35,6 +35,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 import MyMapComponent from "./Map";
 import Homepage from "../Features/Homepage/Homepage";
+import Services from "../Features/Services/Services"
 
 
 const Hello = () => {
@@ -60,6 +61,7 @@ const Hello = () => {
 
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
+    { path: '/elevator-services', element: <Services /> },
   { path: '/elevator-service-area', element: <MyMapComponent /> }
 ]);
 

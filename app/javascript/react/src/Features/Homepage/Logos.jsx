@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Logos() {
+export default function Logos({ isVisible }) {
+    const className = isVisible ? '' : 'hidden';
+
     return (
         <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -41,14 +43,16 @@ export default function Logos() {
                         height={48}
                     />
                 </div>
-                <div className="mt-16 flex justify-center">
-                    <p className="relative rounded-full bg-gray-50 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5">
-                        <span className="hidden md:inline">Over 1500 companies use our services to keep things operating smoothly.</span>
-                        <a href="#" className="font-semibold text-green-600">
-                            <span className="absolute inset-0" aria-hidden="true" /> Read our customer stories{' '}
-                            <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </p>
+                <div className={className}>
+                    <div className="mt-16 flex justify-center services-hide">
+                         <p className="relative rounded-full bg-gray-50 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5">
+                             <span className="hidden md:inline">Over 1500 companies use our services to keep things operating smoothly.</span>
+                                <a href="#" className="font-semibold text-green-600">
+                             <span className="absolute inset-0" aria-hidden="true" /> Read our customer stories{' '}
+                             <span aria-hidden="true">&rarr;</span>
+                             </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
