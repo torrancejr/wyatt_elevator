@@ -15,9 +15,6 @@ function Services() {
             <section className="service-main">
                 <Main />
             </section>
-            <section className="service-logos">
-             <Logos />
-            </section>
             <section className='technical'>
                 <Technical />
             </section>

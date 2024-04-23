@@ -59,7 +59,7 @@ export default function Main() {
                                         >
                                             Contact Us
                                         </a>
-                                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                        <a href="/elevator-service-area" className="text-sm font-semibold leading-6 text-gray-900">
                                             Service Area <span aria-hidden="true">→</span>
                                         </a>
                                     </div>

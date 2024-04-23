@@ -16,6 +16,7 @@ import React from 'react';
 */
 import { Fragment } from 'react'
 import { Tab } from '@headlessui/react'
+import WyattIcon from "../../Components/WyattIcon";
 
 const tabs = [
     {
@@ -119,6 +120,9 @@ export default function Technical() {
                                             <div className="mt-6 lg:col-span-5 lg:mt-0">
                                                 <h3 className="text-lg font-medium text-gray-900">{feature.name}</h3>
                                                 <p className="mt-2 text-sm text-gray-500">{feature.description}</p>
+                                                <div className="mt-10 flex justify-center items-center">
+                                                <WyattIcon />
+                                                </div>
                                             </div>
                                             <div className="lg:col-span-7">
                                                 <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:aspect-h-2 sm:aspect-w-5">

@@ -13,6 +13,8 @@
   ```
 */
 import React from 'react';
+import Logos from "../Homepage/Logos";
+import './Services.css';
 
 const incentives = [
     {
@@ -55,6 +57,9 @@ export default function Example() {
                             />
                         </div>
                     </div>
+                </div>
+                <div className="important-bg-gray-100">
+                    <Logos />
                 </div>
             </div>
         </div>
