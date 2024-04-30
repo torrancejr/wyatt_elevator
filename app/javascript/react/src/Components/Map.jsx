@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { GoogleMap, Marker, useLoadScript, Data } from '@react-google-maps/api';
+import Header from '../Features/Header';
+import Divider from "../Features/Divider";
+import './Map.css';
 
 function MyMapComponent() {
   const mapContainerRef = useRef(null); // Reference to the map container div
@@ -150,13 +153,28 @@ function MyMapComponent() {
   }, []);
 
   return (
-    <div>
-      
-    
-    <input ref={searchInputRef} type="text" placeholder="Search Box" style={{ width: '300px', height: '40px', margin: '10px' }} />
+      <div>
+        <Header />
+        <Divider />
+        <div style={{ paddingTop: '20px' }}>
+          <span style={{ display: 'flex', alignItems: 'center' }}>
+      <input
+          ref={searchInputRef}
+          type="text"
+          placeholder="Search Box"
+          style={{ width: '300px', height: '40px', margin: '10px' }}
+      />
+      <button
+          type="submit"
+          className="flex justify-center rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+      >
+        Search
+      </button>
+    </span>
+        </div>
+        <div className="map-container" ref={mapContainerRef}></div>
+      </div>
 
-    <div ref={mapContainerRef} style={{ width: '100%', height: '600px' }}></div>
-    </div>
   );
 }
 
