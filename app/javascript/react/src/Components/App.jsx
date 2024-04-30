@@ -37,6 +37,8 @@ import MyMapComponent from "./Map";
 import Homepage from "../Features/Homepage/Homepage";
 import Services from "../Features/Services/Services"
 import Suppliers from "../Features/Suppliers/Suppliers";
+import Contact from "../Features/Contact/Contact";
+import Successes from "../Features/Successes/Successes";
 
 
 const Hello = () => {
@@ -63,7 +65,9 @@ const Hello = () => {
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
     { path: '/elevator-services', element: <Services /> },
+    { path: '/wyatt-elevator-success', element: <Successes /> },
     { path: '/elevator-suppliers', element: <Suppliers /> },
+    { path: '/contact-us', element: <Contact /> },
   { path: '/elevator-service-area', element: <MyMapComponent /> }
 ]);
 
