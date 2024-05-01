@@ -22,7 +22,7 @@ export default function Example() {
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Wyatt Elevator</span>
                             <img
-                                className="h-8 w-auto"
+                                className="h-16 w-auto"
                                 src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
                                 alt=""
                             />
