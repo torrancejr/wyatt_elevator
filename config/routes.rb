@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get '*path', action: :home, controller: 'home'
   resources :maps
+  post '/searches', to: 'searches#create'
 end
