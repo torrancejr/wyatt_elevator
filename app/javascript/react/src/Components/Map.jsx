@@ -10,6 +10,7 @@ function MyMapComponent() {
   const [searchInput, setSearchInput] = useState('')
   const [map, setMap] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
+  const [marker, setMarker] = useState(null);
 
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
@@ -83,7 +84,7 @@ function MyMapComponent() {
       // Initialize the map
       const initializedMap = new Map(mapContainerRef.current, {
         center: { lat: 39.9526, lng: -75.1652 },
-        zoom: 9,
+        zoom: 10,
         mapId: "4504f8b37365c3d0",
       });
 
@@ -119,15 +120,19 @@ function MyMapComponent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (marker) {
+      marker.setMap(null);
+    }
     if (selectedPlace && selectedPlace.geometry) {
       // Use selectedPlace to update the map
-      const marker = new google.maps.Marker({
+      const newMarker = new google.maps.Marker({
         map: map,
         title: selectedPlace.name,
         position: selectedPlace.geometry.location,
       });
+      setMarker(newMarker);
       map.setCenter(selectedPlace.geometry.location);
-      map.setZoom(9);
+      map.setZoom(10);
     } // Prevent default form submission behavior
     try {
       const response = await fetch('http://localhost:3000/searches', { // Update with your actual Rails server URL
@@ -174,16 +179,15 @@ function MyMapComponent() {
 
   return (
       <div>
-
-        <Divider />
-        <form onSubmit={handleSubmit} style={{ paddingTop: '20px' }}>
+        <Header />
+        <form onSubmit={handleSubmit} className='mt-40'>
         <span style={{ display: 'flex', alignItems: 'center' }}>
           <input
               ref={searchInputRef}
               value={searchInput}
               onChange={handleInputChange}
               type="text"
-              placeholder="Search Box"
+              placeholder="Search Address"
               style={{ width: '300px', height: '40px', margin: '10px' }}
           />
           <button
