@@ -13,14 +13,16 @@ import {
 } from '@heroicons/react/24/outline'
 import Calendar from "./Calendar";
 import MapContacts from "./MapContacts";
+import ContactMe from "./ContactMe";
+import Newsletter from "./Newsletter";
 
 
 const navigation = [
     { name: 'Dashboard', href: '#', icon: HomeIcon, component: <Calendar />, current: true },
-    // { name: 'Team', href: '#', icon: UsersIcon, component: <Team />, current: false },
+    { name: 'Contact Me', href: '#', icon: UsersIcon, component: <ContactMe />, current: false },
     { name: 'Map Contacts', href: '#', icon: FolderIcon, component: <MapContacts />, current: false },
     { name: 'Calendar', href: '#', icon: CalendarIcon, component: <Calendar />, current: false },
-    // { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, component: <Documents />, current: false },
+    { name: 'Newletter', href: '#', icon: DocumentDuplicateIcon, component: <Newsletter />, current: false },
     // { name: 'Reports', href: '#', icon: ChartPieIcon, component: <Reports />, current: false },
 ];
 
