@@ -9,6 +9,24 @@ Rails.application.routes.draw do
   root "home#home"
 
   get '*path', action: :home, controller: 'home'
+
   resources :maps
+
   post '/searches', to: 'searches#create'
+
+  # config/routes.rb
+  get 'current_user', to: 'users#current'
+
+  # devise_for :users, skip: [:sessions]
+
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  },
+             controllers: {
+               sessions: 'users/sessions',
+               registrations: 'users/registrations'
+             }
+
 end

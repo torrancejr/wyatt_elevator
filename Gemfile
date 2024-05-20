@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.3.0"
 
+#devise for user authentication
+gem 'devise', '~> 4.9', '>= 4.9.4'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
@@ -9,7 +11,8 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 
 # Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
+gem 'mysql2', '~> 0.5.6'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -26,6 +29,9 @@ gem "jsbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+#jwt with devise for auth
+gem 'devise-jwt', '~> 0.11.0'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
 
@@ -34,6 +40,9 @@ gem "redis", ">= 4.0.1"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
+gem 'rack-cors', require: 'rack/cors'
+gem 'jsonapi-serializer'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]

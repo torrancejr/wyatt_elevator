@@ -39,6 +39,10 @@ import Services from "../Features/Services/Services"
 import Suppliers from "../Features/Suppliers/Suppliers";
 import Contact from "../Features/Contact/Contact";
 import Successes from "../Features/Successes/Successes";
+import Admin from '../Features/Admin/Admin';
+import Calendar from "../Features/Admin/Calendar";
+import Login from "../Features/Login/Login"
+import Signup from "../Features/Login/SignUp";
 
 
 const Hello = () => {
@@ -68,7 +72,13 @@ const router = createBrowserRouter([
     { path: '/wyatt-elevator-success', element: <Successes /> },
     { path: '/elevator-suppliers', element: <Suppliers /> },
     { path: '/contact-us', element: <Contact /> },
-  { path: '/elevator-service-area', element: <MyMapComponent /> }
+  { path: '/elevator-service-area', element: <MyMapComponent /> },
+    {path: '/admin', element: <Admin />},
+    {path: '/calendar', element: <Calendar />},
+    {path: '/login', element: <Login />},
+    {path: '/sign-up', element: <Signup />},
+    {path: '/logout', element: <Homepage />}
+
 ]);
 
 createRoot(document.getElementById("hello")).render(

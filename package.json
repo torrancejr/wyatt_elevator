@@ -9,6 +9,7 @@
     "@react-google-maps/api": "^2.19.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.6.8",
     "esbuild": "^0.20.2",
     "postcss": "^8.4.38",
     "react": "^18.2.0",
