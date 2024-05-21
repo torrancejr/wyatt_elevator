@@ -29,7 +29,7 @@
 
 // root.render(<App />); // Render the App component to the DOM.
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
@@ -38,7 +38,12 @@ import Homepage from "../Features/Homepage/Homepage";
 import Services from "../Features/Services/Services"
 import Suppliers from "../Features/Suppliers/Suppliers";
 import Contact from "../Features/Contact/Contact";
+import Admin from '../Features/Admin/Admin';
+import Calendar from "../Features/Admin/Calendar";
 import Successes from "../Features/Successes/Successes";
+import Login from "../Features/Login/Login"
+import Signup from "../Features/Login/SignUp";
+import { UserProvider } from '../userContext';
 
 
 const Hello = () => {
@@ -68,11 +73,18 @@ const router = createBrowserRouter([
     { path: '/wyatt-elevator-success', element: <Successes /> },
     { path: '/elevator-suppliers', element: <Suppliers /> },
     { path: '/contact-us', element: <Contact /> },
-  { path: '/elevator-service-area', element: <MyMapComponent /> }
+  { path: '/elevator-service-area', element: <MyMapComponent /> },
+    {path: '/admin', element: <Admin />},
+    {path: '/calendar', element: <Calendar />},
+    {path: '/login', element: <Login />},
+    {path: '/sign-up', element: <Signup />},
+    {path: '/logout', element: <Homepage />}
 ]);
 
 createRoot(document.getElementById("hello")).render(
-    <RouterProvider router={router} />
+    <UserProvider> {/* Wrap the entire app with UserProvider */}
+        <RouterProvider router={router} />
+    </UserProvider>
 );
 
 export default Hello;

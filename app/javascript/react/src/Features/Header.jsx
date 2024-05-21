@@ -1,7 +1,11 @@
-import * as React from 'react';
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {getCurrentUser} from "../api/api";
+import { logout } from '../api/api';
+import { useNavigate } from 'react-router-dom';
+import api from "../api/api";
+import { useCurrentUser } from '../userContext';
 
 const navigation = [
     { name: 'Services', href: '/elevator-services' },
@@ -13,16 +17,30 @@ const navigation = [
 
 export default function Example() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { currentUser, setCurrentUser } = useCurrentUser();
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+            setCurrentUser(null);
+            navigate('/login');
+            window.location.reload(); // Redirect to login page after logout
+        } catch (error) {
+            console.error('Failed to logout', error);
+        }
+    };
+
 
     return (
         <div className="bg-white">
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <a href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Wyatt Elevator</span>
                             <img
-                                className="h-8 w-auto"
+                                className="h-16 w-auto"
                                 src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
                                 alt=""
                             />
@@ -46,9 +64,18 @@ export default function Example() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        {currentUser ? (
+                            <div className="flex flex-col items-end">
+                                <h1 className="text-sm font-semibold leading-6 text-gray-900">Welcome, {currentUser.email}</h1>
+                                <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900 mt-2">
+                                    Log out <span aria-hidden="true">&rarr;</span>
+                                </button>
+                            </div>
+                        ) : (
+                            <a href="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                                {/*Log in <span aria-hidden="true">&rarr;</span>*/}
+                            </a>
+                        )}
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
