@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useCurrentUser } from '../../userContext';
 
 
 axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector("meta[name='csrf-token']").getAttribute('content');
@@ -10,6 +11,7 @@ function Signup() {
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const navigate = useNavigate();
+    const { setCurrentUser } = useCurrentUser();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,7 +25,9 @@ function Signup() {
             });
             console.log('Response:', response); // Debugging line
             if (response.data.data && response.data.data.id) {
+                setCurrentUser(response.data.data);
                 navigate('/');
+                window.location.reload();
             }
         } catch (error) {
             console.error('Error:', error);

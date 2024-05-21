@@ -3,6 +3,7 @@ import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../api/api'; // Import the login function
 import { useCurrentUser } from '../../userContext';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -36,14 +37,16 @@ export default function Login() {
       */}
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                    <Link to="/">
                     <img
-                        className="mx-auto h-10 w-auto"
+                        className="mx-auto h-16 w-auto"
                         src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
                         alt="Wyatt Elevator"
                     />
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your account
                     </h2>
+                    </Link>
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

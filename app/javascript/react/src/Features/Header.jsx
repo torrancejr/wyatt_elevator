@@ -65,15 +65,15 @@ export default function Example() {
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {currentUser ? (
-                            <>
+                            <div className="flex flex-col items-end">
                                 <h1 className="text-sm font-semibold leading-6 text-gray-900">Welcome, {currentUser.email}</h1>
-                                <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
+                                <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900 mt-2">
                                     Log out <span aria-hidden="true">&rarr;</span>
                                 </button>
-                            </>
+                            </div>
                         ) : (
                             <a href="/login" className="text-sm font-semibold leading-6 text-gray-900">
-                                Log in <span aria-hidden="true">&rarr;</span>
+                                {/*Log in <span aria-hidden="true">&rarr;</span>*/}
                             </a>
                         )}
                     </div>
