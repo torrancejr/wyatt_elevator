@@ -22,4 +22,14 @@ api.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
+export const getCurrentUser = async () => {
+    try {
+        const response = await axios.get('/current_user');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching current user:', error);
+        throw error;
+    }
+};
+
 export default api;

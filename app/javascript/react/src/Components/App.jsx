@@ -29,7 +29,7 @@
 
 // root.render(<App />); // Render the App component to the DOM.
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";

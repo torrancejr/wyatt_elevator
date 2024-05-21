@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {getCurrentUser} from "../api/api";
 
 const navigation = [
     { name: 'Services', href: '/elevator-services' },
@@ -13,6 +13,24 @@ const navigation = [
 
 export default function Example() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const user = await getCurrentUser();
+                setCurrentUser(user);
+            } catch (error) {
+                console.error('Failed to fetch current user', error);
+            }
+        };
+
+        fetchUser();
+    }, []);
+
+    if (!currentUser) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="bg-white">
@@ -47,6 +65,7 @@ export default function Example() {
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                            <h1>Welcome, {currentUser.email}</h1>
                             Log in <span aria-hidden="true">&rarr;</span>
                         </a>
                     </div>
