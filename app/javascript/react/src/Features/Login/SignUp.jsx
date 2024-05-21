@@ -21,7 +21,8 @@ function Signup() {
                     password_confirmation: passwordConfirmation
                 }
             });
-            if (response.data.user) {
+            console.log('Response:', response); // Debugging line
+            if (response.data.data && response.data.data.id) {
                 navigate('/');
             }
         } catch (error) {
