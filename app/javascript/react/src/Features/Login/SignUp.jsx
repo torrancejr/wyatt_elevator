@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCurrentUser } from '../../userContext';
+import { Link } from 'react-router-dom';
 
 
 axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector("meta[name='csrf-token']").getAttribute('content');
@@ -37,11 +38,13 @@ function Signup() {
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <img
-                    className="mx-auto h-10 w-auto"
-                    src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
-                    alt="Wyatt Elevator"
-                />
+                <Link to="/">
+                    <img
+                        className="mx-auto h-16 w-auto"
+                        src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
+                        alt="Wyatt Elevator"
+                    />
+                </Link>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Sign up
                 </h2>

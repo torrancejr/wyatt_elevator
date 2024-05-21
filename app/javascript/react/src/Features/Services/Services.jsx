@@ -5,6 +5,7 @@ import Main from './Main'
 import Logos from "../Homepage/Logos";
 import Projects from './Projects'
 import Technical from "./Technical";
+import Contact from "../Contact/Contact";
 
 function Services() {
     return (
@@ -20,6 +21,9 @@ function Services() {
             </section>
             <section className="projects">
                 <Projects />
+            </section>
+            <section className="contact">
+                <Contact />
             </section>
             <footer className="footer">
                 <Footer />
