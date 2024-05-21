@@ -43,6 +43,7 @@ import Calendar from "../Features/Admin/Calendar";
 import Successes from "../Features/Successes/Successes";
 import Login from "../Features/Login/Login"
 import Signup from "../Features/Login/SignUp";
+import { UserProvider } from '../userContext';
 
 
 const Hello = () => {
@@ -81,7 +82,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("hello")).render(
-    <RouterProvider router={router} />
+    <UserProvider> {/* Wrap the entire app with UserProvider */}
+        <RouterProvider router={router} />
+    </UserProvider>
 );
 
 export default Hello;

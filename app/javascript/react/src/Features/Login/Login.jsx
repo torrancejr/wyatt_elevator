@@ -1,41 +1,26 @@
-/*
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-
 import React from 'react';
 import { useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../../api/api'; // Import the login function
+import { useCurrentUser } from '../../userContext';
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const { setCurrentUser } = useCurrentUser();
 
-    const handleLogin = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/users/sign_in', {
-                user: {
-                    email: email,
-                    password: password
-                }
-            });
-            const { jwt } = response.data;
-            localStorage.setItem('token', jwt);
-            console.log('Login successful');
-            // Redirect to another route
+            const user = await login(email, password);
+            setCurrentUser(user); // Update the user context
+            navigate('/'); // Redirect to home page after successful login
+            window.location.reload();
         } catch (error) {
-            console.error('Login failed: ', error);
+            setError('Invalid email or password');
         }
     };
 
@@ -62,7 +47,8 @@ export default function Login() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" action="#" method="POST">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
+                        {error && <p className="text-red-500">{error}</p>}
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address

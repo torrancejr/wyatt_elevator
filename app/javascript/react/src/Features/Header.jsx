@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {getCurrentUser} from "../api/api";
+import { logout } from '../api/api';
+import { useNavigate } from 'react-router-dom';
+import api from "../api/api";
+import { useCurrentUser } from '../userContext';
 
 const navigation = [
     { name: 'Services', href: '/elevator-services' },
@@ -13,24 +17,20 @@ const navigation = [
 
 export default function Example() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [currentUser, setCurrentUser] = useState(null);
+    const { currentUser, setCurrentUser } = useCurrentUser();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const user = await getCurrentUser();
-                setCurrentUser(user);
-            } catch (error) {
-                console.error('Failed to fetch current user', error);
-            }
-        };
+    const handleLogout = async () => {
+        try {
+            await logout();
+            setCurrentUser(null);
+            navigate('/login');
+            window.location.reload(); // Redirect to login page after logout
+        } catch (error) {
+            console.error('Failed to logout', error);
+        }
+    };
 
-        fetchUser();
-    }, []);
-
-    if (!currentUser) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div className="bg-white">
@@ -64,10 +64,18 @@ export default function Example() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                            <h1>Welcome, {currentUser.email}</h1>
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        {currentUser ? (
+                            <>
+                                <h1 className="text-sm font-semibold leading-6 text-gray-900">Welcome, {currentUser.email}</h1>
+                                <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
+                                    Log out <span aria-hidden="true">&rarr;</span>
+                                </button>
+                            </>
+                        ) : (
+                            <a href="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                                Log in <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        )}
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
