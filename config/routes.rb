@@ -11,4 +11,14 @@ Rails.application.routes.draw do
   get '*path', action: :home, controller: 'home'
   resources :maps
   post '/searches', to: 'searches#create'
+
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  },
+             controllers: {
+               sessions: 'users/sessions',
+               registrations: 'users/registrations'
+             }
 end
