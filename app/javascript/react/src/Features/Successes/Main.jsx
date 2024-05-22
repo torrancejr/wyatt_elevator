@@ -24,9 +24,6 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-                <div className="important-bg-gray-100">
-                    <Logos />
-                </div>
             </div>
         </div>
     )
