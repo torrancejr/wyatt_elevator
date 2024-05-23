@@ -6,6 +6,7 @@ import Logos from "../Homepage/Logos";
 import Projects from './Projects'
 import Technical from "./Technical";
 
+
 function Services() {
     return (
         <div className="homepage">
