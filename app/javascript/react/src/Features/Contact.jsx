@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+const initialFormData = {
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    interest: '',
+    message: ''
+};
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        first_name: '',
-        last_name: '',
-        phone_number: '',
-        interest: '',
-        message: ''
-    });
+    const [showNotification, setShowNotification] = useState(false);
+
+    const [formData, setFormData] = useState(initialFormData);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,10 +21,20 @@ export default function Contact() {
         try {
             const response = await axios.post('http://localhost:3000/inquiries', { inquiry: formData });
             console.log(response.data);  // Process the response data as needed
+            setShowNotification(true); // Show notification on success
+            setFormData(initialFormData);
+            setTimeout(() => setShowNotification(false), 3000);
         } catch (error) {
             console.error('Error posting data: ', error);
+            setShowNotification(false);
         }
     }
+
+    const Notification = ({ message }) => (
+        <div className="bg-green-500 text-white p-4 rounded-md shadow-lg">
+            {message}
+        </div>
+    );
     return (
         <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
             <svg
@@ -149,6 +161,9 @@ export default function Contact() {
                             >
                                 Let’s talk
                             </button>
+                            <div className="mt-4">
+                                {showNotification && <Notification message="Form submitted successfully!" />}
+                            </div>
                         </div>
                     </form>
                     <div className="lg:mt-6 lg:w-80 lg:flex-none">
