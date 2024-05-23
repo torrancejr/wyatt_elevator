@@ -42,10 +42,11 @@ export default function Contact() {
                 <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
             </svg>
             <div className="mx-auto max-w-xl lg:max-w-4xl">
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900">Get a Quote</h2>
+                <h2 className="text-4xl font-bold tracking-tight text-gray-900">Let's Connect</h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">
-                    We provide customized care and peace of mind for your business.
+                    A family owned business working hard to provide the best possible service. We’d love to hear from you.
                 </p>
+                <p> Call us at  610-237-6600, fax us at 610-237-6700 or fill out our form below.</p>
                 <div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
                     <form action="#" method="POST" className="lg:flex-auto">
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
