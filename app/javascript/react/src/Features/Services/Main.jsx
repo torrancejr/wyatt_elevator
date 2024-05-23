@@ -43,11 +43,10 @@ export default function Example() {
                     <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-2">
                         <div>
                             <h2 className="text-4xl font-bold tracking-tight text-gray-900">
-                                We built our business on great customer service
+                                See How Wyatt Elevator Can Help You
                             </h2>
                             <p className="mt-4 text-gray-500">
-                                Wyatt is privileged to provide service for a wide range of private, public, and non-profit entities throughout Philadelphia and the larger tri-state area. Our customers include:
-                            </p>
+                                Our focus at Wyatt Elevator is to ensure our customers have the safest, most efficient, most elegant elevator systems possible. That’s why we offer all forms of elevator services — from repair to maintenance, modernization to new upgrades. You can learn more below.                            </p>
                         </div>
                         <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg bg-gray-100">
                             <img
@@ -57,9 +56,6 @@ export default function Example() {
                             />
                         </div>
                     </div>
-                </div>
-                <div className="important-bg-gray-100">
-                    <Logos />
                 </div>
             </div>
         </div>
