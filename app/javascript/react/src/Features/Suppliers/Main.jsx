@@ -1,4 +1,5 @@
 import React from 'react';
+import './Image.css'
 
 const posts = [
     {
@@ -8,7 +9,113 @@ const posts = [
         description:
         'A leading manufacturer and supplier of geared traction machines, car slings and platforms, safety devices and a range of other “core” elevator products.',
         imageUrl:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
+            'https://wyatt-elevator.s3.amazonaws.com/hollister.png',
+    },
+    {
+        id: 2,
+        title: 'Imperial Electric',
+        href: '#',
+        description:
+        'A leading manufacturer of AC and DC motors, ACPM (Permanent Magnet) gearless machines, and generator sets.',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/imperial-electric.gif',
+    },
+    {
+        id: 3,
+        title: 'Motion Control Engineering',
+        href: '#',
+        description:
+            'The cornerstone of MCE’s products are non-proprietary, serviceable and maintainable elevator controls, as well as complete elevator packages',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/mce.png',
+    },
+    {
+        id: 4,
+        title: 'Innovation Industries',
+        href: '#',
+        description:
+            'Innovation is a leading manufacturer of high quality, custom pushbutton and signal fixtures devices.',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/innovation2.png',
+    },
+    {
+        id: 5,
+        title: 'Canton Elevator',
+        href: '#',
+        description:
+            'Canton manufactures hydraulic packages as well as custom hydraulic power units and jack assemblies.',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/canton2.png',
+    },
+    {
+        id: 6,
+        title: 'GAL',
+        href: '#',
+        description:
+            'GAL provides a range of high quality door operators, door equipment, fixtures & pushbuttons, and controllers.',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/gal.png',
+    },
+    {
+        id: 7,
+        title: 'Gunderlin',
+        href: '#',
+        description:
+            'Gunderlin specializes in to developing cabs, entrances, interior packages and door panels for projects of all sizes.',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/gunderlin2.png',
+    },
+    {
+        id: 8,
+        title: 'Palmer',
+        href: '#',
+        description:
+            'Protective cab interior pads',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/palmer2.png',
+    },
+    {
+        id: 9,
+        title: 'Elevator Products Corp.',
+        href: '#',
+        description:
+            'Pushbuttons and signal fixtures',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/epco2.png',
+    },
+    {
+        id: 10,
+        title: 'Courion',
+        href: '#',
+        description:
+            'Freight Doors',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/cur.png',
+    },
+    {
+        id: 11,
+        title: 'Janus Elevator Products',
+        href: '#',
+        description:
+            'Door edges and communication devices',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/rath.png',
+    },
+    {
+        id: 12,
+        title: 'ELSCO',
+        href: '#',
+        description:
+            'Roller and slide guides',
+        imageUrl:
+            'https://wyatt-elevator.s3.amazonaws.com/elsco.jpeg',
+    },
+    {
+        id: 13,
+        title: 'Computerized Elevator Controls',
+        href: '#',
+        description:
+            'Non-proprietary controls'
     },
     // More posts...
 ]
