@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_010320) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_173146) do
+  create_table "inquiries", charset: "utf8mb4", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "location"
+    t.string "interest"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "phone_number"
+  end
+
   create_table "searches", charset: "utf8mb4", force: :cascade do |t|
     t.string "location"
     t.float "latitude"

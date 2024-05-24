@@ -1,20 +1,40 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+const initialFormData = {
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    interest: '',
+    message: ''
+};
+export default function Contact() {
+    const [showNotification, setShowNotification] = useState(false);
 
-/*
-  This example requires some changes to your config:
+    const [formData, setFormData] = useState(initialFormData);
 
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-export default function Example() {
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3000/inquiries', { inquiry: formData });
+            console.log(response.data);  // Process the response data as needed
+            setShowNotification(true); // Show notification on success
+            setFormData(initialFormData);
+            setTimeout(() => setShowNotification(false), 3000);
+        } catch (error) {
+            console.error('Error posting data: ', error);
+            setShowNotification(false);
+        }
+    }
+
+    const Notification = ({ message }) => (
+        <div className="bg-green-500 text-white p-4 rounded-md shadow-lg">
+            {message}
+        </div>
+    );
     return (
         <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
             <svg
@@ -42,12 +62,13 @@ export default function Example() {
                 <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
             </svg>
             <div className="mx-auto max-w-xl lg:max-w-4xl">
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900">Hello, how can we help you today?</h2>
+                <h2 className="text-4xl font-bold tracking-tight text-gray-900">Let's Connect</h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">
-                    We provide customized care and peace of mind for your business.
+                    A family owned business working hard to provide the best possible service. We’d love to hear from you.
                 </p>
+                <p> Call us at  610-237-6600, fax us at 610-237-6700 or fill out our form below.</p>
                 <div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-                    <form action="#" method="POST" className="lg:flex-auto">
+                    <form onSubmit={handleSubmit} className="lg:flex-auto">
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                             <div>
                                 <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -56,9 +77,11 @@ export default function Example() {
                                 <div className="mt-2.5">
                                     <input
                                         type="text"
-                                        name="first-name"
+                                        name="first_name"
                                         id="first-name"
                                         autoComplete="given-name"
+                                        value={formData.first_name}
+                                        onChange={handleChange}
                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
@@ -70,24 +93,29 @@ export default function Example() {
                                 <div className="mt-2.5">
                                     <input
                                         type="text"
-                                        name="last-name"
+                                        name="last_name"
                                         id="last-name"
                                         autoComplete="family-name"
+                                        value={formData.last_name}
+                                        onChange={handleChange}
                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="budget" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Location
+                                <label htmlFor="phoneNumber" className="block text-sm font-semibold leading-6 text-gray-900">
+                                   Phone
                                 </label>
                                 <div className="mt-2.5">
-                                    <select className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                        <option value="">Select an location</option>
-                                        <option value="option1">Pennsylvania</option>
-                                        <option value="option2">New Jersey</option>
-                                        <option value="option2">Delaware</option>
-                                    </select>
+                                    <input
+                                        type="text"
+                                        name="phone_number"
+                                        id="phone-number"
+                                        autoComplete="phone"
+                                        value={formData.phone_number}
+                                        onChange={handleChange}
+                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
                                 </div>
                             </div>
                             <div>
@@ -95,14 +123,18 @@ export default function Example() {
                                     Interested in...
                                 </label>
                                 <div className="mt-2.5">
-                                    <select className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <select
+                                        name="interest"
+                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        value={formData.interest}
+                                        onChange={handleChange}>
                                         <option value="">Select an option</option>
-                                        <option value="option1">Fixing a problem</option>
-                                        <option value="option2">Finding a service company</option>
-                                        <option value="option3">New elevator installation</option>
-                                        <option value="option3">Upgrading existing elevators</option>
-                                        <option value="option3">Improving Elevator efficiency</option>
-                                        <option value="option3">Something else</option>
+                                        <option value="Fixing a problem">Fixing a problem</option>
+                                        <option value="Finding a service company">Finding a service company</option>
+                                        <option value="New elevator installation">New elevator installation</option>
+                                        <option value="Upgrading existing elevators">Upgrading existing elevators</option>
+                                        <option value="Improving Elevator efficiency">Improving Elevator efficiency</option>
+                                        <option value="Something else">Something else</option>
                                     </select>
                                 </div>
                             </div>
@@ -115,10 +147,11 @@ export default function Example() {
                       id="message"
                       name="message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       defaultValue={''}
-                  />
-                                </div>
+                  /></div>
                             </div>
                         </div>
                         <div className="mt-10">
@@ -128,14 +161,10 @@ export default function Example() {
                             >
                                 Let’s talk
                             </button>
+                            <div className="mt-4">
+                                {showNotification && <Notification message="Form submitted successfully!" />}
+                            </div>
                         </div>
-                        <p className="mt-4 text-sm leading-6 text-gray-500">
-                            By submitting this form, I agree to the{' '}
-                            <a href="#" className="font-semibold text-green-600">
-                                privacy&nbsp;policy
-                            </a>
-                            .
-                        </p>
                     </form>
                     <div className="lg:mt-6 lg:w-80 lg:flex-none">
                         <figure>

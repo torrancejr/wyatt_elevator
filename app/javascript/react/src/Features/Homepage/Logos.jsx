@@ -7,7 +7,13 @@ export default function Logos({ isVisible }) {
         <div className="bg-white py-24 sm:py-32 services">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-
+                    <img
+                        className="col-span-2 max-h-24 w-full object-contain lg:col-span-1"
+                        src='https://wyatt-elevator.s3.amazonaws.com/aecom-logo.png'
+                        alt='aecome'
+                        width={188}
+                        height={78}
+                    />
                     <img
                         className="col-span-2 max-h-24 w-full object-contain lg:col-span-1"
                         src="https://wyatt-elevator.s3.amazonaws.com/temple-log.svg"
