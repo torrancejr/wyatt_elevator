@@ -10,6 +10,7 @@ export default function Logos({ isVisible }) {
                     <img
                         className="col-span-2 max-h-24 w-full object-contain lg:col-span-1"
                         src='https://wyatt-elevator.s3.amazonaws.com/aecom-logo.png'
+                        alt='aecome'
                         width={188}
                         height={78}
                     />
