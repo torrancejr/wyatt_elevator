@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseURL = `<%= ENV['BASE_PROD_URL']%>` || `<%= ENV['BASE_URL']%>` || 'http://localhost:3000';
+const baseURL = process.env.BASE_PROD_URL || process.env.BASE_URL || 'http://localhost:3000';
 
 const api = axios.create({
-    baseURL: baseURL,
+    baseURL: 'https://wyatt-53e54f3152e0.herokuapp.com/',
     headers: {
         'Content-Type': 'application/json'
     }

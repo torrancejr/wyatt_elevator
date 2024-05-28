@@ -16,7 +16,7 @@ export default function Contact() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const apiUrl = `<%= ENV['BASE_PROD_URL']%>` || `<%= ENV['BASE_URL']%>` || 'http://localhost:3000';
+    const apiUrl = process.env.BASE_PROD_URL || process.env.BASE_URL || 'http://localhost:3000';
 
     const handleSubmit = async (e) => {
         e.preventDefault();

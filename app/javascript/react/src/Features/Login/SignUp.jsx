@@ -14,7 +14,7 @@ function Signup() {
     const navigate = useNavigate();
     const { setCurrentUser } = useCurrentUser();
 
-    const apiUrl = `<%= ENV['BASE_PROD_URL']%>` || `<%= ENV['BASE_URL']%>` || 'http://localhost:3000';
+    const apiUrl = process.env.BASE_PROD_URL || process.env.BASE_URL || 'http://localhost:3000';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
