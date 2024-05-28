@@ -51,7 +51,7 @@ test:
 production:
   <<: *default
   database: wyatt_elevator
-  username: ryan
+  username: 'ryan'
   adapter: mysql2
   encoding: utf8
   pool: 5
