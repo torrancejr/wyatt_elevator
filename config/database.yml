@@ -55,7 +55,7 @@ production:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  host: ec2-34-228-112-76.compute-1.amazonaws.com
+  host: localhost
   password: <%= ENV["WYATT_ELEVATOR_DATABASE_PASSWORD"] %>
   socket: /var/run/mysqld/mysqld.sock
   port: 3306
