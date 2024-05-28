@@ -52,4 +52,8 @@ production:
   <<: *default
   database: wyatt_elevator
   username: ryan
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost
   password: <%= ENV["WYATT_ELEVATOR_DATABASE_PASSWORD"] %>
