@@ -118,6 +118,8 @@ function MyMapComponent() {
     }
   }
 
+  const apiUrl = process.env.BASE_URL || process.env.BASE_PROD_URL || 'http://localhost:3000';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (marker) {
@@ -135,7 +137,7 @@ function MyMapComponent() {
       map.setZoom(10);
     } // Prevent default form submission behavior
     try {
-      const response = await fetch('https://wyatt-53e54f3152e0.herokuapp.com/searches', { // Update with your actual Rails server URL
+      const response = await fetch(`${apiUrl}/searches`, { // Update with your actual Rails server URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

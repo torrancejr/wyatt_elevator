@@ -14,10 +14,12 @@ function Signup() {
     const navigate = useNavigate();
     const { setCurrentUser } = useCurrentUser();
 
+    const apiUrl = process.env.BASE_URL || process.env.BASE_PROD_URL || 'http://localhost:3000';
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://wyatt-53e54f3152e0.herokuapp.com/signup', {
+            const response = await axios.post(`${apiUrl}/signup`, {
                 user: {
                     email,
                     password,

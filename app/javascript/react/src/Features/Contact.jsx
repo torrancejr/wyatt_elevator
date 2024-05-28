@@ -16,10 +16,12 @@ export default function Contact() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
+    const apiUrl = process.env.BASE_URL || process.env.BASE_PROD_URL || 'http://localhost:3000';
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://wyatt-53e54f3152e0.herokuapp.com/inquiries', { inquiry: formData });
+            const response = await axios.post(`${apiUrl}/inquiries`, { inquiry: formData });
             console.log(response.data);  // Process the response data as needed
             setShowNotification(true); // Show notification on success
             setFormData(initialFormData);

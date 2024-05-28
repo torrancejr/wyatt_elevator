@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins `<%= ENV['BASE_URL']%>` # later change to the domain of the frontend app
+    origins `<%= ENV['BASE_PROD_URL']%>` # later change to the domain of the frontend app
     resource '*',
              headers: :any,
              methods: %i[get post put patch delete options head],
