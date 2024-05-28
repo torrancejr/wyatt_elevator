@@ -135,7 +135,7 @@ function MyMapComponent() {
       map.setZoom(10);
     } // Prevent default form submission behavior
     try {
-      const response = await fetch('http://localhost:3000/searches', { // Update with your actual Rails server URL
+      const response = await fetch('https://wyatt-53e54f3152e0.herokuapp.com/searches', { // Update with your actual Rails server URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
