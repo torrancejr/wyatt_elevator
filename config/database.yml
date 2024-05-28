@@ -12,8 +12,10 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
+  username: ryan
+  password: <%= ENV["WYATT_ELEVATOR_DATABASE_PASSWORD"] %> # Make sure the password is correct
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -57,5 +59,3 @@ production:
   pool: 5
   host: localhost
   password: <%= ENV["WYATT_ELEVATOR_DATABASE_PASSWORD"] %>
-  socket: /var/run/mysqld/mysqld.sock
-  port: 3306
