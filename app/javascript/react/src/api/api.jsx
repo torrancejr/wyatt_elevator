@@ -1,11 +1,7 @@
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'production'
-    ? 'https://wyatt-53e54f3152e0.herokuapp.com'  // Replace with your production URL
-    : 'http://localhost:3000';
-
 const api = axios.create({
-    baseURL: baseURL,
+    baseURL: 'https://wyatt-53e54f3152e0.herokuapp.com/',
     headers: {
         'Content-Type': 'application/json'
     }
