@@ -18,7 +18,7 @@
     "tailwindcss": "^3.4.3"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --minify --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.js=jsx"
+    "build": "esbuild app/javascript/application.js --bundle --minify --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.js=jsx"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
