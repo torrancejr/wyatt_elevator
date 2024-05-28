@@ -18,7 +18,7 @@ default: &default
 development:
   <<: *default
   database: wyatt_elevator_development
-    username: root
+  username: root
   password: password
 
 # Warning: The database defined as "test" will be erased and
