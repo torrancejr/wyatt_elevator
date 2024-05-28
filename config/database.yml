@@ -59,4 +59,4 @@ production:
   pool: 5
   host: localhost
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  url: <%= ENV['JAWSDB_URL'] %>
+  url: <%= ENV['JAWSDB_ROSE_URL'] %>
