@@ -17,7 +17,7 @@ function Signup() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/signup', {
+            const response = await axios.post('https://wyatt-53e54f3152e0.herokuapp.com/signup', {
                 user: {
                     email,
                     password,

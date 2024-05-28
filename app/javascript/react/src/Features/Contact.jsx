@@ -19,7 +19,7 @@ export default function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/inquiries', { inquiry: formData });
+            const response = await axios.post('https://wyatt-53e54f3152e0.herokuapp.com/inquiries', { inquiry: formData });
             console.log(response.data);  // Process the response data as needed
             setShowNotification(true); // Show notification on success
             setFormData(initialFormData);
