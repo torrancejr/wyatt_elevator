@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: wyatt_elevator_production
-  username: wyatt_elevator
+  database: wyatt_elevator
+  username: ryan
   password: <%= ENV["WYATT_ELEVATOR_DATABASE_PASSWORD"] %>
