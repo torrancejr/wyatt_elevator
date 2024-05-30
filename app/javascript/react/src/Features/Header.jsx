@@ -86,7 +86,7 @@ export default function Example() {
                                 <span className="sr-only">Wyatt Elevator</span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                    src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
                                     alt=""
                                 />
                             </a>
