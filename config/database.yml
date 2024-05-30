@@ -51,6 +51,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  adapter: mysql2
   database: wyatt_elevator
   username: ryan
   password: <%= ENV['MYSQL_PASSWORD'] %>
