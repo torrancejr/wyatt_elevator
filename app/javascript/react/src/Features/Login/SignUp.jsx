@@ -14,7 +14,7 @@ function Signup() {
     const navigate = useNavigate();
     const { setCurrentUser } = useCurrentUser();
 
-    const apiUrl = 'https://wyatt-53e54f3152e0.herokuapp.com/' || 'http://localhost:3000';
+    const apiUrl = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/' || 'http://localhost:3000';
 
     const handleSubmit = async (event) => {
         event.preventDefault();
