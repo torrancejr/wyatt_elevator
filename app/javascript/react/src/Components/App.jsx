@@ -44,21 +44,35 @@ import Successes from "../Features/Successes/Successes";
 import Login from "../Features/Login/Login";
 import Signup from "../Features/Login/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import ContactMe from "../Features/Admin/ContactMe";
+import MapContacts from "../Features/Admin/MapContacts";
+import Newsletter from "../Features/Admin/Newsletter";
 import { UserProvider, useCurrentUser } from '../userContext';
+
 
 
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
-    { path: '/elevator-services', element: <Services /> },
-    { path: '/wyatt-elevator-success', element: <Successes /> },
-    { path: '/elevator-suppliers', element: <Suppliers /> },
-    { path: '/contact-us', element: <Contact /> },
+  { path: '/elevator-services', element: <Services /> },
+  { path: '/wyatt-elevator-success', element: <Successes /> },
+  { path: '/elevator-suppliers', element: <Suppliers /> },
+  { path: '/contact-us', element: <Contact /> },
   { path: '/elevator-service-area', element: <MyMapComponent /> },
-    { path: '/admin', element: <PrivateRoute><Admin /></PrivateRoute> },
-    {path: '/calendar', element: <Calendar />},
-    {path: '/login', element: <Login />},
-    {path: '/sign-up', element: <Signup />},
-    {path: '/logout', element: <Homepage />}
+  {
+    path: '/admin/*',
+    element: <PrivateRoute><Admin /></PrivateRoute>,
+    children: [
+      { path: '', element: <Calendar /> },
+      { path: 'contact-me', element: <ContactMe /> },
+      { path: 'map-contacts', element: <MapContacts /> },
+      { path: 'calendar', element: <Calendar /> },
+      { path: 'newsletter', element: <Newsletter /> },
+    ]
+  },
+  { path: '/calendar', element: <Calendar /> },
+  { path: '/login', element: <Login /> },
+  { path: '/sign-up', element: <Signup /> },
+  { path: '/logout', element: <Homepage /> },
 ]);
 
 createRoot(document.getElementById("hello")).render(

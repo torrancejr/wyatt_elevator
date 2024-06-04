@@ -68,6 +68,16 @@ export const logout = async () => {
     }
 };
 
+export const fetchInquiries = async () => {
+    try {
+        const response = await api.get('/api/inquiries');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching inquiries:', error);
+        throw error;
+    }
+};
+
 export default api;
 
 
