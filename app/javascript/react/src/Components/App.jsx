@@ -29,43 +29,23 @@
 
 // root.render(<App />); // Render the App component to the DOM.
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as ReactDOM from 'react-dom';
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route, Link, Navigate } from "react-router-dom";
 import MyMapComponent from "./Map";
 import Homepage from "../Features/Homepage/Homepage";
-import Services from "../Features/Services/Services"
+import Services from "../Features/Services/Services";
 import Suppliers from "../Features/Suppliers/Suppliers";
 import Contact from "../Features/Contact/Contact";
 import Admin from '../Features/Admin/Admin';
 import Calendar from "../Features/Admin/Calendar";
 import Successes from "../Features/Successes/Successes";
-import Login from "../Features/Login/Login"
+import Login from "../Features/Login/Login";
 import Signup from "../Features/Login/SignUp";
-import { UserProvider } from '../userContext';
+import PrivateRoute from "./PrivateRoute";
+import { UserProvider, useCurrentUser } from '../userContext';
 
-
-const Hello = () => {
-    return (
-        <div className={container}>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>;
-        </div>
-    )
-
-  };
-  
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const container = document.getElementById('hello');
-  //   if(container) { // Ensure the container exists
-  //     const root = ReactDOM.createRoot(container);
-  //     root.render(<MyMapComponent />);
-  //   } else {
-  //     console.error('The target container is not found.');
-  //   }
-  // });
 
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
@@ -74,7 +54,7 @@ const router = createBrowserRouter([
     { path: '/elevator-suppliers', element: <Suppliers /> },
     { path: '/contact-us', element: <Contact /> },
   { path: '/elevator-service-area', element: <MyMapComponent /> },
-    {path: '/admin', element: <Admin />},
+    { path: '/admin', element: <PrivateRoute><Admin /></PrivateRoute> },
     {path: '/calendar', element: <Calendar />},
     {path: '/login', element: <Login />},
     {path: '/sign-up', element: <Signup />},
