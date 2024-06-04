@@ -5,7 +5,7 @@ import {getCurrentUser} from "../api/api";
 import { logout } from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import api from "../api/api";
-import { useCurrentUser } from '../userContext';
+import { useCurrentUser } from '../userProvider';
 
 const navigation = [
     { name: 'Services', href: '/elevator-services' },

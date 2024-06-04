@@ -47,7 +47,7 @@ import PrivateRoute from "./PrivateRoute";
 import ContactMe from "../Features/Admin/ContactMe";
 import MapContacts from "../Features/Admin/MapContacts";
 import Newsletter from "../Features/Admin/Newsletter";
-import { UserProvider, useCurrentUser } from '../userContext';
+import { UserProvider, useCurrentUser } from '../userProvider';
 
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../api/api';
-import { useCurrentUser } from '../../userContext';
+import { useCurrentUser } from '../../userProvider';
 import { Link } from 'react-router-dom';
 
 export default function Login() {

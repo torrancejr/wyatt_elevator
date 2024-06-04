@@ -10,7 +10,7 @@ const ContactMe = () => {
             try {
                 const data = await fetchInquiries();
                 setInquiries(data);
-                console.log(data)
+                console.log(data);
             } catch (error) {
                 console.error('Error fetching inquiries:', error);
             }
@@ -47,32 +47,32 @@ const ContactMe = () => {
                                     <a href="#" className="group inline-flex">
                                         Name
                                         <span className="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                                                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-                                            </span>
+                                            <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
                                     </a>
                                 </th>
                                 <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                     <a href="#" className="group inline-flex">
-                                        Location
+                                        Phone Number
                                         <span className="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                                                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-                                            </span>
+                                            <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
                                     </a>
                                 </th>
                                 <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                     <a href="#" className="group inline-flex">
-                                        Email
+                                        Interest
                                         <span className="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                                                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-                                            </span>
+                                            <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
                                     </a>
                                 </th>
                                 <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                     <a href="#" className="group inline-flex">
-                                        Phone
+                                        Message
                                         <span className="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                                                <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-                                            </span>
+                                            <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
                                     </a>
                                 </th>
                                 <th scope="col" className="relative py-3.5 pl-3 pr-0">
@@ -86,9 +86,9 @@ const ContactMe = () => {
                                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                         {inquiry.first_name} {inquiry.last_name}
                                     </td>
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{inquiry.location}</td>
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{inquiry.email}</td>
                                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{inquiry.phone_number}</td>
+                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{inquiry.interest}</td>
+                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{inquiry.message}</td>
                                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0">
                                         <a href="#" className="text-emerald-600 hover:text-emerald-900">
                                             Edit<span className="sr-only">, {inquiry.first_name} {inquiry.last_name}</span>

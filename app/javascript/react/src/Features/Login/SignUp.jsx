@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser } from '../../userContext';
+import { useCurrentUser } from '../../userProvider';
 import { Link } from 'react-router-dom';
 
 
