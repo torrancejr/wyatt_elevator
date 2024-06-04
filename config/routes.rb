@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     get 'current_user', to: 'current_user#index'
     resources :inquiries, only: [:index, :create]
+    resources :searches, only: [:index, :create]
   end
   # Defines the root path route ("/")
   root "home#home"

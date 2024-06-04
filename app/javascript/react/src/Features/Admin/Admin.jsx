@@ -19,8 +19,8 @@ const navigation = [
     { name: 'Dashboard', href: '/admin', icon: HomeIcon, current: true },
     { name: 'Contact Me', href: '/admin/contact-me', icon: UsersIcon, current: false },
     { name: 'Map Contacts', href: '/admin/map-contacts', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '/admin/calendar', icon: CalendarIcon, current: false },
-    { name: 'Newsletter', href: '/admin/newsletter', icon: DocumentDuplicateIcon, current: false },
+    // { name: 'Calendar', href: '/admin/calendar', icon: CalendarIcon, current: false },
+    // { name: 'Newsletter', href: '/admin/newsletter', icon: DocumentDuplicateIcon, current: false },
 ];
 
 function classNames(...classes) {
