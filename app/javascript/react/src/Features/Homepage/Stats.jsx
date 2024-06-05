@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-const stats = [
-    { id: 1, name: 'Elevators', value: '8,000+' },
-    { id: 2, name: 'Happy Customers', value: '5k+' },
-    { id: 3, name: 'Uptime guarantee', value: '99.9%' },
-    { id: 4, name: 'Focused on you', value: '100%' },
-]
+// const stats = [
+//     { id: 1, name: 'Elevators', value: '8,000+' },
+//     { id: 2, name: 'Happy Customers', value: '5k+' },
+//     { id: 3, name: 'Uptime guarantee', value: '99.9%' },
+//     { id: 4, name: 'Focused on you', value: '100%' },
+// ]
 
 export default function Stats() {
     return (
@@ -26,12 +26,6 @@ export default function Stats() {
                             Wyatt is privileged to provide service for a wide range of private, public, and non-profit entities throughout Philadelphia and the larger tri-state area.
                         </p>
                         <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
-                            {stats.map((stat) => (
-                                <div key={stat.id} className="flex flex-col gap-y-3 border-l border-gray-900/10 pl-6">
-                                    <dt className="text-sm leading-6 text-gray-600">{stat.name}</dt>
-                                    <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">{stat.value}</dd>
-                                </div>
-                            ))}
                         </dl>
                     </div>
                 </div>
