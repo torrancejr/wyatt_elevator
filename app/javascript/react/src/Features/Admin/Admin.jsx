@@ -14,11 +14,13 @@ import Calendar from './Calendar';
 import MapContacts from './MapContacts';
 import ContactMe from './ContactMe';
 import Newsletter from './Newsletter';
+import JobsList from "./JobList";
 
 const navigation = [
     { name: 'Dashboard', href: '/admin', icon: HomeIcon, current: true },
     { name: 'Contact Me', href: '/admin/contact-me', icon: UsersIcon, current: false },
     { name: 'Map Contacts', href: '/admin/map-contacts', icon: FolderIcon, current: false },
+    { name: 'Jobs', href: '/admin/jobs', icon: FolderIcon, current: false },
     // { name: 'Calendar', href: '/admin/calendar', icon: CalendarIcon, current: false },
     // { name: 'Newsletter', href: '/admin/newsletter', icon: DocumentDuplicateIcon, current: false },
 ];
@@ -203,6 +205,7 @@ export default function Admin() {
                             <Route path="map-contacts" element={<MapContacts />} />
                             <Route path="calendar" element={<Calendar />} />
                             <Route path="newsletter" element={<Newsletter />} />
+                            <Route path="jobs" element={<JobsList />} />
                         </Routes>
                     </div>
                 </main>

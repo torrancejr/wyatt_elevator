@@ -88,6 +88,16 @@ export const fetchSearches = async () => {
     }
 };
 
+export const fetchJobs = async () => {
+    const response = await api.get('/api/jobs');
+    return response.data;
+};
+
+export const createJob = async (jobData) => {
+    const response = await axios.post('/api/jobs', jobData);
+    return response.data;
+};
+
 export default api;
 
 

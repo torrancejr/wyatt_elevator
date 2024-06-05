@@ -47,6 +47,7 @@ import PrivateRoute from "./PrivateRoute";
 import ContactMe from "../Features/Admin/ContactMe";
 import MapContacts from "../Features/Admin/MapContacts";
 import Newsletter from "../Features/Admin/Newsletter";
+import JobList from "../Features/Admin/JobList";
 import { UserProvider, useCurrentUser } from '../userProvider';
 
 
@@ -67,6 +68,7 @@ const router = createBrowserRouter([
       { path: 'map-contacts', element: <MapContacts /> },
       { path: 'calendar', element: <Calendar /> },
       { path: 'newsletter', element: <Newsletter /> },
+      { path: 'jobs', element: <JobList /> },
     ]
   },
   { path: '/calendar', element: <Calendar /> },

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'current_user', to: 'current_user#index'
     resources :inquiries, only: [:index, :create]
     resources :searches, only: [:index, :create]
+    resources :jobs, only: [:index, :create, :show, :update, :destroy]
   end
   # Defines the root path route ("/")
   root "home#home"
