@@ -98,6 +98,16 @@ export const createJob = async (jobData) => {
     return response.data;
 };
 
+export const updateJob = async (id, jobData) => {
+    try {
+        const response = await axios.put(`/api/jobs/${id}`, { job: jobData });
+        return response.data;
+    } catch (error) {
+        console.error('Error updating job:', error);
+        throw error;
+    }
+};
+
 export default api;
 
 

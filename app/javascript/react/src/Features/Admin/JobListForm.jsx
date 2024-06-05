@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const JobListForm = ({ closeForm, refreshJobs }) => {
+const JobListForm = ({ job, closeForm, refreshJobs }) => {
     const [formData, setFormData] = useState({
         e: false,
         consolidated: '',
         start_date: '',
         job: '',
         tax: '',
-        job_type: '', // Changed to job_type
+        job_type: '',
         job_name: '',
         address: '',
         city: '',
@@ -19,6 +19,12 @@ const JobListForm = ({ closeForm, refreshJobs }) => {
         units: '',
         visits: 'Reg',
     });
+
+    useEffect(() => {
+        if (job) {
+            setFormData(job);
+        }
+    }, [job]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -33,16 +39,18 @@ const JobListForm = ({ closeForm, refreshJobs }) => {
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         try {
-            const response = await fetch('/api/jobs', {
-                method: 'POST',
+            const method = job ? 'PUT' : 'POST';
+            const endpoint = job ? `/api/jobs/${job.id}` : '/api/jobs';
+            const response = await fetch(endpoint, {
+                method,
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRF-Token': csrfToken,
                 },
-                body: JSON.stringify({ job: formData }), // Wrap formData in { job: formData }
+                body: JSON.stringify({ job: formData }),
             });
             if (response.ok) {
-                await refreshJobs(); // Refresh jobs list after successful submission
+                refreshJobs();
                 closeForm();
             } else {
                 console.error('Failed to submit job');
@@ -121,7 +129,7 @@ const JobListForm = ({ closeForm, refreshJobs }) => {
                     Job Type (number below 10):
                     <input
                         type="number"
-                        name="job_type" // Changed to job_type
+                        name="job_type"
                         value={formData.job_type}
                         onChange={handleChange}
                         className="block w-full"

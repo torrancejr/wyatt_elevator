@@ -1,12 +1,13 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { fetchJobs } from '../../api/api'; // Adjust the import based on your file structure
+import { fetchJobs, updateJob } from '../../api/api'; // Adjust the import based on your file structure
 import JobListForm from './JobListForm'; // Adjust the import based on your file structure
 import { Dialog, Transition } from '@headlessui/react';
 
 const JobsList = () => {
     const [jobs, setJobs] = useState([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [currentJob, setCurrentJob] = useState(null); // State for the job being edited
 
     const getJobs = async () => {
         try {
@@ -29,9 +30,11 @@ const JobsList = () => {
 
     const closeForm = () => {
         setIsFormOpen(false);
+        setCurrentJob(null);
     };
 
-    const openForm = () => {
+    const openForm = (job = null) => {
+        setCurrentJob(job);
         setIsFormOpen(true);
     };
 
@@ -48,7 +51,7 @@ const JobsList = () => {
                     <button
                         type="button"
                         className="block rounded-md bg-emerald-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
-                        onClick={openForm}
+                        onClick={() => openForm()}
                     >
                         Add Job
                     </button>
@@ -140,9 +143,9 @@ const JobsList = () => {
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.units}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.visits}</td>
                                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0">
-                                            <a href="#" className="text-emerald-600 hover:text-emerald-900">
+                                            <button onClick={() => openForm(job)} className="text-emerald-600 hover:text-emerald-900">
                                                 Edit<span className="sr-only">, {job.consolidated}</span>
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>
                                 ))
@@ -189,10 +192,10 @@ const JobsList = () => {
                                     <div className="sm:flex sm:items-start">
                                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                             <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                                                Add Job
+                                                {currentJob ? 'Edit Job' : 'Add Job'}
                                             </Dialog.Title>
                                             <div className="mt-2">
-                                                <JobListForm closeForm={closeForm} refreshJobs={getJobs} />
+                                                <JobListForm job={currentJob} closeForm={closeForm} refreshJobs={getJobs} />
                                             </div>
                                         </div>
                                     </div>
@@ -216,3 +219,4 @@ const JobsList = () => {
 }
 
 export default JobsList;
+
