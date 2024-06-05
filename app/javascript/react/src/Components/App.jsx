@@ -66,7 +66,6 @@ const router = createBrowserRouter([
       { path: '', element: <Calendar /> },
       { path: 'contact-me', element: <ContactMe /> },
       { path: 'map-contacts', element: <MapContacts /> },
-      { path: 'calendar', element: <Calendar /> },
       { path: 'newsletter', element: <Newsletter /> },
       { path: 'jobs', element: <JobList /> },
     ]
