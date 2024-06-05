@@ -27,22 +27,21 @@ export default function Testimonial() {
                         </figure>
                     </div>
                     <div className="flex flex-col border-t border-gray-900/10 pt-10 sm:pt-16 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
-                        <img className="h-12 self-start mt-10" src="https://wyatt-elevator.s3.amazonaws.com/ACP_stacked_logo_200.png" alt="" />
+                        <img className="h-12 self-start mt-10" src="https://wyatt-elevator.s3.amazonaws.com/domus.png" alt="" />
                         <figure className="mt-10 flex flex-auto flex-col justify-between">
                             <blockquote className="text-lg leading-8 text-gray-900">
                                 <p>
-                                    “When you call Wyatt Elevator for service, your call is answered by a locally based,
-                                    company representative that knows you and your company.  They don’t ask you for an
-                                    account number or any secret code word.  They just dispatch a mechanic to resolve your issue.
-                                    Their mechanics are all top notch, polite, courteous and keep our elevator machine rooms spotlessly clean.
-                                    They show up on time, complete their work, clean up and move on to the next assignment.
-                                    If the repair is not complete, they tell you why and when they will be back to complete the work.  No follow-up (to chase them down) is ever necessary.”
+                                    "I seldom take the time to write a "thank you" letter however this letter had to be written. Since the beginning of time, my organization has had less than favorable experiences with the well-known big three international firms whom have controlled the market forever. Now that we have experienced Wyatt on the U-Haul project, I can honestly say that you are not all the same! Wyatt has somehow figured out how to tackle large and technical projects with a small firm feel! Your site Installers and office staff are true professionals whom have worked efficiently with Domus and have met our budget and scheduling goals.
+
+                                    A personal thank you needs to be extended to you and your brother for always being attainable. It is refreshing to have access to the executive staff of a local elevator company, which is in stark contrast to trying to track down "the boss" of one of the conglomerates. Your firm is respected by Domus and it will be our mission to award many more projects to Wyatt in the future.
+
+                                    Thank you for a job well done at U-Haul!"
                                 </p>
                             </blockquote>
                             <figcaption className="mt-10 flex items-center gap-x-6">
                                 <div className="text-base">
-                                    <div className="font-semibold text-gray-900">Andrew Albero</div>
-                                    <div className="mt-1 text-gray-500">Director of Facilities at American College of Physicians</div>
+                                    <div className="font-semibold text-gray-900">Bob Malagoli</div>
+                                    <div className="mt-1 text-gray-500">Principal - Domus Inc</div>
                                 </div>
                             </figcaption>
                         </figure>

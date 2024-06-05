@@ -3,18 +3,17 @@ import axios from 'axios';
 const baseURL = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/' || 'http://localhost:3000';
 
 const api = axios.create({
-    baseURL: baseURL,
+    baseURL,
     headers: {
         'Content-Type': 'application/json'
     }
 });
-// Get CSRF token from meta tag
+
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 if (csrfToken) {
     api.defaults.headers.common['X-CSRF-Token'] = csrfToken;
 }
 
-// Add a request interceptor to include the token
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('jwt');
     if (token) {
@@ -25,15 +24,17 @@ api.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
+// api/api.js
 export const getCurrentUser = async () => {
     try {
-        const response = await api.get('/current_user');
-        return response.data;
+        const response = await api.get('/api/current_user');
+        return response.data; // Ensure this includes { admin: true/false } among other fields
     } catch (error) {
         console.error('Error fetching current user:', error);
         throw error;
     }
 };
+
 
 export const login = async (email, password) => {
     try {
@@ -59,7 +60,7 @@ export const logout = async () => {
                 'X-CSRF-Token': csrfToken
             }
         });
-        localStorage.removeItem('jwt'); // Remove JWT from localStorage
+        localStorage.removeItem('jwt');
         return true;
     } catch (error) {
         console.error('Error during logout:', error);
@@ -67,6 +68,47 @@ export const logout = async () => {
     }
 };
 
+export const fetchInquiries = async () => {
+    try {
+        const response = await api.get('/api/inquiries');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching inquiries:', error);
+        throw error;
+    }
+};
+
+export const fetchSearches = async () => {
+    try {
+        const response = await api.get('/api/searches');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching searches:', error);
+        throw error;
+    }
+};
+
+export const fetchJobs = async () => {
+    const response = await api.get('/api/jobs');
+    return response.data;
+};
+
+export const createJob = async (jobData) => {
+    const response = await axios.post('/api/jobs', jobData);
+    return response.data;
+};
+
+export const updateJob = async (id, jobData) => {
+    try {
+        const response = await axios.put(`/api/jobs/${id}`, { job: jobData });
+        return response.data;
+    } catch (error) {
+        console.error('Error updating job:', error);
+        throw error;
+    }
+};
+
 export default api;
+
 
 

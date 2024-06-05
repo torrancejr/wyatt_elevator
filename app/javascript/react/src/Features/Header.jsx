@@ -5,7 +5,7 @@ import {getCurrentUser} from "../api/api";
 import { logout } from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import api from "../api/api";
-import { useCurrentUser } from '../userContext';
+import { useCurrentUser } from '../userProvider';
 
 const navigation = [
     { name: 'Services', href: '/elevator-services' },
@@ -30,6 +30,12 @@ export default function Example() {
             console.error('Failed to logout', error);
         }
     };
+
+    if (!currentUser) {
+        return null; // or a loading indicator if currentUser is being fetched
+    }
+
+    const role = currentUser.admin ? 'Admin' : 'User';
 
 
     return (
@@ -66,7 +72,7 @@ export default function Example() {
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         {currentUser ? (
                             <div className="flex flex-col items-end">
-                                <h1 className="text-sm font-semibold leading-6 text-gray-900">Welcome, {currentUser.email}</h1>
+                                <h1 className="text-sm font-semibold leading-6 text-gray-900">Welcome, {currentUser.email} {role}</h1>
                                 <button onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900 mt-2">
                                     Log out <span aria-hidden="true">&rarr;</span>
                                 </button>

@@ -1,12 +1,10 @@
-import React from 'react';
-import { useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../api/api'; // Import the login function
-import { useCurrentUser } from '../../userContext';
+import { login } from '../../api/api';
+import { useCurrentUser } from '../../userProvider';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -19,7 +17,6 @@ export default function Login() {
             const user = await login(email, password);
             setCurrentUser(user); // Update the user context
             navigate('/'); // Redirect to home page after successful login
-            window.location.reload();
         } catch (error) {
             setError('Invalid email or password');
         }
@@ -27,25 +24,17 @@ export default function Login() {
 
     return (
         <>
-            {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <Link to="/">
-                    <img
-                        className="mx-auto h-16 w-auto"
-                        src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
-                        alt="Wyatt Elevator"
-                    />
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                        Sign in to your account
-                    </h2>
+                        <img
+                            className="mx-auto h-16 w-auto"
+                            src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
+                            alt="Wyatt Elevator"
+                        />
+                        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                            Sign in to your account
+                        </h2>
                     </Link>
                 </div>
 
@@ -107,5 +96,5 @@ export default function Login() {
                 </div>
             </div>
         </>
-    )
+    );
 }

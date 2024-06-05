@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_23_173146) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_142910) do
   create_table "inquiries", charset: "utf8mb4", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -20,6 +20,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_173146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
+  end
+
+  create_table "jobs", charset: "utf8mb4", force: :cascade do |t|
+    t.boolean "e", default: false, null: false
+    t.string "consolidated"
+    t.date "start_date"
+    t.integer "job", limit: 3
+    t.string "tax", limit: 1
+    t.integer "job_type", limit: 1
+    t.string "job_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zone", limit: 1
+    t.string "zip"
+    t.string "type_str"
+    t.string "mech"
+    t.integer "units", limit: 1
+    t.string "visits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", charset: "utf8mb4", force: :cascade do |t|
@@ -40,6 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_173146) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "jti", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
