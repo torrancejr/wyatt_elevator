@@ -250,8 +250,11 @@ const JobListForm = ({ closeForm, refreshJobs }) => {
                         onChange={handleChange}
                         className="block w-full"
                     >
-                        <option value="Reg">Reg</option>
-                        <option value="Sys">Sys</option>
+                        <option value="Reg & Sys">Reg & Sys</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Bi-Monthly">Bi-Monthly</option>
+                        <option value="Elev Quarterly/ CL Yearly">Elev Quarterly/ CL Yearly</option>
                     </select>
                 </label>
             </div>
