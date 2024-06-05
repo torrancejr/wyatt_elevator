@@ -8,22 +8,22 @@ const JobsList = () => {
     const [jobs, setJobs] = useState([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
-    useEffect(() => {
-        const getJobs = async () => {
-            try {
-                const data = await fetchJobs();
-                if (Array.isArray(data)) {
-                    setJobs(data);
-                } else {
-                    console.error('Unexpected data format:', data);
-                    setJobs([]);
-                }
-            } catch (error) {
-                console.error('Error fetching jobs:', error);
+    const getJobs = async () => {
+        try {
+            const data = await fetchJobs();
+            if (Array.isArray(data)) {
+                setJobs(data);
+            } else {
+                console.error('Unexpected data format:', data);
                 setJobs([]);
             }
-        };
+        } catch (error) {
+            console.error('Error fetching jobs:', error);
+            setJobs([]);
+        }
+    };
 
+    useEffect(() => {
         getJobs();
     }, []);
 
@@ -128,7 +128,7 @@ const JobsList = () => {
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{new Date(job.start_date).toLocaleDateString()}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.job}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.tax}</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.type}</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.job_type}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.job_name}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.address}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{job.city}</td>
@@ -192,7 +192,7 @@ const JobsList = () => {
                                                 Add Job
                                             </Dialog.Title>
                                             <div className="mt-2">
-                                                <JobListForm closeForm={closeForm} />
+                                                <JobListForm closeForm={closeForm} refreshJobs={getJobs} />
                                             </div>
                                         </div>
                                     </div>
@@ -216,4 +216,3 @@ const JobsList = () => {
 }
 
 export default JobsList;
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const JobListForm = ({ closeForm }) => {
+const JobListForm = ({ closeForm, refreshJobs }) => {
     const [formData, setFormData] = useState({
         e: false,
         consolidated: '',
@@ -42,6 +42,7 @@ const JobListForm = ({ closeForm }) => {
                 body: JSON.stringify({ job: formData }), // Wrap formData in { job: formData }
             });
             if (response.ok) {
+                await refreshJobs(); // Refresh jobs list after successful submission
                 closeForm();
             } else {
                 console.error('Failed to submit job');
@@ -265,8 +266,3 @@ const JobListForm = ({ closeForm }) => {
 };
 
 export default JobListForm;
-
-
-
-
-
