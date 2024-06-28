@@ -10,6 +10,8 @@ gem 'devise-jwt'
 gem 'jsonapi-serializer'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'sitemap_generator'
+
 
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
