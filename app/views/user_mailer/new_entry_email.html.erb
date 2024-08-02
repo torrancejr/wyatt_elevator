@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          color: #333;
+          margin: 0;
+          padding: 0;
+      }
+      .container {
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #ffffff;
+          border: 1px solid #e0e0e0;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+          color: #0056b3;
+      }
+      .title {
+          font-weight: bold;
+          margin-top: 10px;
+          margin-bottom: 5px;
+      }
+      .content {
+          margin-bottom: 20px;
+      }
+      .footer {
+          text-align: center;
+          font-size: 12px;
+          color: #888;
+          margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>New Inquiry Received</h1>
+  <p>Hi,</p>
+  <p>A new inquiry has been submitted:</p>
+  <div class="content">
+    <div class="title">First Name:</div>
+    <div><%= @entry.first_name %></div>
+
+    <div class="title">Last Name:</div>
+    <div><%= @entry.last_name %></div>
+
+    <div class="title">Location:</div>
+    <div><%= @entry.location %></div>
+
+    <div class="title">Phone Number:</div>
+    <div><%= @entry.phone_number %></div>
+
+    <div class="title">Interest:</div>
+    <div><%= @entry.interest %></div>
+
+    <div class="title">Message:</div>
+    <div><%= @entry.message %></div>
+  </div>
+</div>
+</body>
+</html>

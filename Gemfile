@@ -10,6 +10,9 @@ gem 'devise-jwt'
 gem 'jsonapi-serializer'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'sendgrid-ruby'
+gem 'sidekiq'
+
 gem 'sitemap_generator'
 
 

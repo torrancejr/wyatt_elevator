@@ -78,4 +78,22 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: 'apikey', # This is the string literal 'apikey', not the username of your SendGrid account
+    password: ENV['SENDGRID_API_KEY'], # Replace with your SendGrid API key
+    domain: 'wyattelevator.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
+  # Ensure emails are sent during development
+  config.action_mailer.perform_deliveries = true
+
+  # Raise errors if there are issues with sending emails
+  config.action_mailer.raise_delivery_errors = true
+
 end
