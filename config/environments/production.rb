@@ -87,6 +87,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.smtp_settings = {
+    user_name: 'apikey', # This is the string literal 'apikey', not the username of your SendGrid account
+    password: ENV['SENDGRID_API_KEY'], # Replace with your SendGrid API key
+    domain: 'wyattelevator.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com

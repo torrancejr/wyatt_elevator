@@ -4,6 +4,8 @@ class InquiriesController < ApplicationController
   def create
     inquiry = Inquiry.new(inquiry_params)
     if inquiry.save
+      # SendNewEntryEmailJob.perform_later(inquiry)
+      UserMailer.new_entry_email(inquiry).deliver_now
       render json: inquiry, status: :created
     else
       render json: inquiry.errors, status: :unprocessable_entity

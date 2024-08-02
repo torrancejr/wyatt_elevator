@@ -17,7 +17,7 @@ export default function Contact() {
     }
 
     const apiUrl = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/' || 'http://localhost:3000';
-
+    // const apiUrl = 'http://localhost:3000/'
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
