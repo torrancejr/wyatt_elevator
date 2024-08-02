@@ -7,23 +7,21 @@ import './Map.css';
 function MyMapComponent() {
   const mapContainerRef = useRef(null); // Reference to the map container div
   const searchInputRef = useRef(null); // Reference to the search input element
-  const [searchInput, setSearchInput] = useState('')
+  const [searchInput, setSearchInput] = useState('');
   const [map, setMap] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [marker, setMarker] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
-  }
-
+  };
 
   async function initMap() {
     if (typeof google !== 'undefined') {
-      // Ensure the libraries are loaded
       const { Map, places } = await google.maps.importLibrary("maps");
       const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-      // Define the styled map type
       const styledMapType = new google.maps.StyledMapType([
         {
           "featureType": "all",
@@ -81,7 +79,6 @@ function MyMapComponent() {
         },
       ], { name: "styled_map" });
 
-      // Initialize the map
       const initializedMap = new Map(mapContainerRef.current, {
         center: { lat: 39.9526, lng: -75.1652 },
         zoom: 10,
@@ -94,31 +91,26 @@ function MyMapComponent() {
       setMap(initializedMap);
       initAutocomplete(initializedMap);
 
-      // Apply the styled map
-      initializedMap.mapTypes.set("styled_map", styledMapType);
-      initializedMap.setMapTypeId("styled_map");
-
       initializedMap.data.setStyle({
         fillColor: 'green',
         strokeWeight: 1
       });
 
-      // Load GeoJSON files
       const geoJsonUrls = [
+        '/chesco.geojson',
         '/phillydos.geojson',
         '/bucks8.geojson',
         '/deleware-county.geojson',
         '/montgomery.geojson',
         '/south-jersey-2.geojson',
         '/new-castle.geojson',
-        // List all your GeoJSON URLs here
       ];
 
       geoJsonUrls.forEach(url => initializedMap.data.loadGeoJson(url));
     }
   }
 
-  const apiUrl = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/'
+  const apiUrl = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -126,7 +118,6 @@ function MyMapComponent() {
       marker.setMap(null);
     }
     if (selectedPlace && selectedPlace.geometry) {
-      // Use selectedPlace to update the map
       const newMarker = new google.maps.Marker({
         map: map,
         title: selectedPlace.name,
@@ -135,42 +126,58 @@ function MyMapComponent() {
       setMarker(newMarker);
       map.setCenter(selectedPlace.geometry.location);
       map.setZoom(10);
-    } // Prevent default form submission behavior
+    } else {
+      setErrorMessage('Please enter a full address including street number, street name, city, state, and postal code.');
+      return;
+    }
     try {
-      const response = await fetch(`${apiUrl}/searches`, { // Update with your actual Rails server URL
+      const response = await fetch(`${apiUrl}/searches`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({search: {location: searchInput}}),
+        body: JSON.stringify({ search: { location: searchInput } }),
       });
       if (response.ok) {
         console.log('Search data saved successfully');
         const data = await response.json();
         console.log(data);
+        setErrorMessage(''); // Clear error message on successful submit
       } else {
         console.error('Failed to save search data');
       }
     } catch (error) {
       console.error('Error:', error);
     }
-  }
+  };
 
   async function initAutocomplete(map) {
     if (typeof google !== 'undefined') {
       const autocomplete = new google.maps.places.Autocomplete(searchInputRef.current, {
-        types: ['address'], // restricts search to only return places that are addresses
+        types: ['address'],
       });
       autocomplete.bindTo('bounds', map);
 
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          window.alert("No details available for input: '" + place.name + "'");
+        if (!place.geometry || !place.address_components) {
+          setErrorMessage("No details available for input: '" + place.name + "'");
           return;
         }
+
+        const addressComponents = place.address_components.reduce((acc, component) => {
+          acc[component.types[0]] = component.long_name;
+          return acc;
+        }, {});
+
+        if (!addressComponents.street_number || !addressComponents.route || !addressComponents.locality || !addressComponents.administrative_area_level_1 || !addressComponents.postal_code) {
+          setErrorMessage("Please enter a full address including street number, street name, city, state, and postal code.");
+          return;
+        }
+
         setSelectedPlace(place);
-        setSearchInput(place.formatted_address); // Update the React state with the formatted address
+        setSearchInput(place.formatted_address);
+        setErrorMessage(''); // Clear error message on successful place selection
       });
     }
   }
@@ -200,11 +207,21 @@ function MyMapComponent() {
           </button>
         </span>
         </form>
+        {errorMessage && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+              <strong className="font-bold">Error:</strong>
+              <span className="block sm:inline"> {errorMessage}</span>
+              <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => setErrorMessage('')}>
+            <svg className="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.64a.5.5 0 0 0 .707.707L10 10.707l3.64 3.64a.5.5 0 0 0 .707-.707L10.707 10l3.64-3.64a.5.5 0 0 0 0-.707z"/></svg>
+          </span>
+            </div>
+        )}
         <div className="map-container" ref={mapContainerRef}></div>
       </div>
   );
 }
 
 export default MyMapComponent;
+
 
 
