@@ -23,18 +23,31 @@ export default function TestimonialTwo() {
                         </figure>
                     </div>
                     <div className="flex flex-col border-t border-gray-900/10 pt-10 sm:pt-16 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
-                        <img className="h-12 self-start" src="https://wyatt-elevator.s3.amazonaws.com/aecom-logo.png" alt="" />
                         <figure className="mt-10 flex flex-auto flex-col justify-between">
                             <blockquote className="text-lg leading-8 text-gray-900">
                                 <p>
-                                    "I would like to thank you and Bob for understanding the client and absorbing the impact of the inspection to our schedule and providing a revised schedule in a very timely manner. Having competent contractors
-                                    makes my job easier and I truly appreciate the effort Wyatt has put forth thus far / Keep up the excellent work”
+                                    "This elevator modernization project is now considered to be substantially complete with a few remaining items to be addressed and completed for closeout.
+
+                                    All substantial completion reports have been submitted to the University of Pennsylvania, Burns Group, and Wyatt Elevator Company for review, correction, and completion." </p><br/>
+
+
+
+
+                                   <p> This was a difficult project with unforeseen challenges throughout. Wyatt kept pressing forward to overcome these challenges while accepting responsibility to do what was necessary.
+
+                                    From ownership and office personnel to the technicians in the field, Wyatt Elevator Company has provided a first class, quality elevator modernization to the University of Pennsylvania.</p><br/>
+
+
+                                <p>
+                                    Please take the time to review the attached photo document, which helps capture the modernization teams professional abilities, technical knowledge, and understanding of the elevator industry.
+
+                                    The finished product truly demonstrates pride in their trade through attention to detail.”
                                 </p>
                             </blockquote>
                             <figcaption className="mt-10 flex items-center gap-x-6">
                                 <div className="text-base">
-                                    <div className="font-semibold text-gray-900">Thomas A. Madonna III</div>
-                                    <div className="mt-1 text-gray-500">Assistant Project Manager at Tishman Construction Corporation</div>
+                                    <div className="font-semibold text-gray-900">Paul Meyer</div>
+                                    <div className="mt-1 text-gray-500">Zipf Associates, Inc.</div>
                                 </div>
                             </figcaption>
                         </figure>

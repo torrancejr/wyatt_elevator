@@ -26,9 +26,6 @@ function Successes() {
             <section className="contact">
                 <Contact />
             </section>
-            <footer className="footer">
-                <Footer />
-            </footer>
         </div>
     );
 }

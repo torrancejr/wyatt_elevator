@@ -19,26 +19,26 @@ const features = [
     {
         name: 'BEFORE',
         description: 'Machine Room.',
-        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/BEFORE-Machine-Room-1-410x308.jpeg',
+        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/beforemachine1.webp',
         imageAlt: 'elevator machine room.',
     },
     {
         name: 'AFTER',
         description: '',
-        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/AFTER-Machine-Room-410x308.jpeg',
+        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/aftermachine1.webp',
         imageAlt: 'elevator machine room after modernization.',
     },
     {
         name: 'BEFORE',
-        description: 'Machine Room Generator & Constrols.',
-        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/BEFORE-Machine-Room-Generators-410x308.jpeg',
-        imageAlt: 'elevator machine room.',
+        description: 'Controller.',
+        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/beforemachine2.webp',
+        imageAlt: 'elevator controller before modernization.',
     },
     {
         name: 'AFTER',
         description: '',
-        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/AFTER-Machine-Room-Controls-410x308.jpeg',
-        imageAlt: 'elevator machine room after repair.',
+        imageSrc: 'https://wyatt-elevator.s3.amazonaws.com/aftermachine2.webp',
+        imageAlt: 'elevator controller after repair.',
     },
 ]
 
