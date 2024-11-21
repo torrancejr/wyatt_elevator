@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseURL = 'https://www.wyattelevator.com' || 'https://wyatt-53e54f3152e0.herokuapp.com/' || 'http://localhost:3000';
-// const baseURL = 'http://localhost:3000/'
+
 const api = axios.create({
     baseURL,
     headers: {
