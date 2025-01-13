@@ -1,0 +1,4 @@
+.responsive-container {
+    border-radius: 1.5rem; /* Apply to all corners */
+    overflow: hidden; /* Ensure content respects rounded corners */
+}
