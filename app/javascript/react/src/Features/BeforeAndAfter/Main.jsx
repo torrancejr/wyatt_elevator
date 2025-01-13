@@ -38,7 +38,7 @@ export default function Main() {
                                 Before & After
                             </p>
                             <p className="mt-6 text-lg/8 text-gray-600">
-                                See how our expert elevator upgrades can transform an outdated lift into a modern, efficient, and visually appealing system. Slide the bar to reveal the remarkable difference our solutions can make in elevating your building’s style and performance. These are all from one of our most recent project.
+                                See how our expert elevator upgrades can transform an outdated lift into a modern, efficient, and visually appealing system. Slide the bar to reveal the remarkable difference our solutions can make in elevating your building’s style and performance. These are all from one of our most recent projects.
                             </p>
                             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
