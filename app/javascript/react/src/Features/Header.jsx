@@ -12,6 +12,7 @@ const navigation = [
     { name: 'Successes', href: '/wyatt-elevator-success' },
     { name: 'Suppliers', href: '/elevator-suppliers' },
     { name: 'Contact Us', href: '/contact-us' },
+    { name: 'Our Work', href: '/before-and-after' },
     // { name: 'Blog', href: '/blog' },
 ]
 
