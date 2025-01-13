@@ -59,16 +59,16 @@ export default function Example() {
                 </p>
                 <div className="mt-4 text-base text-gray-700 space-y-4 leading-7">
                     <p className="font-medium text-gray-900">
-                        Paul Meyer <span className="text-gray-500">• Elevator Consultant at Zipf Associates, Inc.</span>
+                        Paul Meyer <span className="text-gray-500">• Elevator Consultant at Zipf Associates, Inc. via LinkedIn</span>
                     </p>
                     <p className="text-sm text-gray-500">
                         1mo • 2 months ago
                     </p>
                     <p>
-                        Recognition of a job well done is always appreciated by those who strive
+                        "Recognition of a job well done is always appreciated by those who strive
                         to be the best at whatever they do. I am extremely fortunate to experience
                         and document the demonstrated attention to detail and the pride of true
-                        professionals within our elevator industry.
+                        professionals within our elevator industry."
                     </p>
                     <p>
                         Here is one more example of a quality elevator modernization in Philadelphia.
