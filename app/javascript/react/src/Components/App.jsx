@@ -49,6 +49,7 @@ import MapContacts from "../Features/Admin/MapContacts";
 import Newsletter from "../Features/Admin/Newsletter";
 import JobList from "../Features/Admin/JobList";
 import { UserProvider, useCurrentUser } from '../userProvider';
+import BeforeAndAfter from "../Features/BeforeAndAfter/BeforeAndAfter";
 
 
 
@@ -74,6 +75,7 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/sign-up', element: <Signup /> },
   { path: '/logout', element: <Homepage /> },
+  { path: '/before-and-after', element: <BeforeAndAfter /> },
 ]);
 
 createRoot(document.getElementById("hello")).render(
