@@ -5,28 +5,32 @@ import Contact from '../Contact'
 import Stats from './Stats'
 import Footer from "../Footer";
 import Main from './Main'
+import Infographic from "./Infographic";
 
 function Homepage() {
     return (
         <div className="homepage">
             <header className="header">
-                <Header />
+                <Header/>
             </header>
             <section className="main">
-            <Main />
+                <Main/>
             </section>
 
             <section className="content">
-                <Logos isVisible />
+                <Logos isVisible/>
+            </section>
+            <section className="infographic">
+                <Infographic/>
             </section>
             <section className="contact">
-                <Contact />
+                <Contact/>
             </section>
             <section className="stats">
-                <Stats />
+                <Stats/>
             </section>
             <footer className="footer">
-                <Footer />
+                <Footer/>
             </footer>
         </div>
     );
