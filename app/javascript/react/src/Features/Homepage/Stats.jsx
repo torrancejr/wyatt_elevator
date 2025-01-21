@@ -20,7 +20,7 @@ export default function Stats() {
                     <div className="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
                         <h2 className="text-base font-semibold leading-8 text-green-600">Our track record</h2>
                         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            Trusted by thousands of businesses&nbsp;
+                            The tri-state area's trusted elevator service provider.
                         </p>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
                             Wyatt is privileged to provide service for a wide range of private, public, and non-profit entities throughout Philadelphia and the larger tri-state area.
