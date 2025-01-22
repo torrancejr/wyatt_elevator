@@ -36,7 +36,7 @@ export default function BlogIndex() {
                 {/* Header */}
                 <div className="mx-auto max-w-7xl text-center">
                     <img
-                        src="https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevate-philly-logo.png"
+                        src="https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevate-philly-clover.webp"
                         alt="Elevate Philly Logo"
                         className="mx-auto w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[600px] h-auto"
                     />
