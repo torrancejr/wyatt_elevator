@@ -50,6 +50,7 @@ import Newsletter from "../Features/Admin/Newsletter";
 import JobList from "../Features/Admin/JobList";
 import { UserProvider, useCurrentUser } from '../userProvider';
 import BeforeAndAfter from "../Features/BeforeAndAfter/BeforeAndAfter";
+import BlogIndex from "../Features/Blog/BlogIndex";
 
 
 
@@ -71,6 +72,13 @@ const router = createBrowserRouter([
       { path: 'jobs', element: <JobList /> },
     ]
   },
+  // Blog Index and Categories
+  { path: '/elevate-philly', element: <BlogIndex /> }, // Blog Index Page
+  // { path: '/elevate-philly/philly-local-life', element: <PhillyLocalLife /> }, // Local Life Category
+  // { path: '/elevate-philly/elevator-maintenance-safety', element: <MaintenanceSafety /> }, // Maintenance & Safety Category
+  // { path: '/elevate-philly/elevator-technology-trends', element: <TechTrends /> }, // Industry Trends Category
+  // { path: '/elevate-philly/elevator-business-insights', element: <BusinessInsights /> }, // Business Insights Category
+
   { path: '/calendar', element: <Calendar /> },
   { path: '/login', element: <Login /> },
   { path: '/sign-up', element: <Signup /> },
