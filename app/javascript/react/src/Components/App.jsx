@@ -51,6 +51,7 @@ import JobList from "../Features/Admin/JobList";
 import { UserProvider, useCurrentUser } from '../userProvider';
 import BeforeAndAfter from "../Features/BeforeAndAfter/BeforeAndAfter";
 import BlogIndex from "../Features/Blog/BlogIndex";
+import HistoryOfElevators from "../Features/Blog/articles/HistoryOfElevators";
 
 
 
@@ -74,10 +75,10 @@ const router = createBrowserRouter([
   },
   // Blog Index and Categories
   { path: '/elevate-philly', element: <BlogIndex /> }, // Blog Index Page
-  // { path: '/elevate-philly/philly-local-life', element: <PhillyLocalLife /> }, // Local Life Category
-  // { path: '/elevate-philly/elevator-maintenance-safety', element: <MaintenanceSafety /> }, // Maintenance & Safety Category
-  // { path: '/elevate-philly/elevator-technology-trends', element: <TechTrends /> }, // Industry Trends Category
-  // { path: '/elevate-philly/elevator-business-insights', element: <BusinessInsights /> }, // Business Insights Category
+  {
+    path: '/elevate-philly/philly-local-life/history-of-elevators',
+    element: <HistoryOfElevators />
+  },
 
   { path: '/calendar', element: <Calendar /> },
   { path: '/login', element: <Login /> },

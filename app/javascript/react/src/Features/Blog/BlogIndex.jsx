@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PostCard from "./components/PostCard";
+import { Link } from "react-router-dom";
 
 const categories = [
     { name: "All", value: "all" },
@@ -11,36 +11,13 @@ const categories = [
 
 const posts = [
     {
-        id: 1,
-        title: "Top 10 Attractions in Philly with Iconic Elevators",
-        description: "Discover the best attractions in Philadelphia featuring unique and historic elevators.",
-        imageUrl: "path-to-image.jpg",
-        date: "2025-01-01",
-        category: "philly-local-life",
-    },
-    {
         id: 2,
         title: "The History of Elevators in Philadelphia",
         description: "Explore how elevators shaped Philadelphia's skyline and historic buildings.",
-        imageUrl: "path-to-image.jpg",
+        imageUrl: "https://wyatt-elevator.s3.us-east-1.amazonaws.com/history-of-elevators.webp",
         date: "2025-01-05",
         category: "philly-local-life",
-    },
-    {
-        id: 3,
-        title: "Best Practices for Elevator Maintenance",
-        description: "Learn the essential steps to maintain elevators for safety and efficiency.",
-        imageUrl: "path-to-image.jpg",
-        date: "2025-01-10",
-        category: "maintenance-safety",
-    },
-    {
-        id: 4,
-        title: "Top Elevator Technology Trends in 2025",
-        description: "Discover the latest advancements in elevator technology shaping the future.",
-        imageUrl: "path-to-image.jpg",
-        date: "2025-01-15",
-        category: "technology-trends",
+        path: "/elevate-philly/philly-local-life/history-of-elevators", // Correct route for the article
     },
 ];
 
@@ -57,14 +34,18 @@ export default function BlogIndex() {
         <div className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Header */}
-                <div className="mx-auto max-w-2xl text-center">
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                        Elevate Philly
-                    </h1>
+                <div className="mx-auto max-w-7xl text-center">
+                    <img
+                        src="https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevate-philly-logo.png"
+                        alt="Elevate Philly Logo"
+                        className="mx-auto w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[600px] h-auto"
+                    />
                     <p className="mt-4 text-lg text-gray-600">
-                        Insights, updates, and local stories about elevators, technology, and the Philadelphia community.
+                        Insights, updates, and local stories about elevators, technology, and the Philadelphia
+                        community.
                     </p>
                 </div>
+
 
                 {/* Category Navigation */}
                 <div className="mt-10 flex justify-center space-x-4">
@@ -81,12 +62,31 @@ export default function BlogIndex() {
                             {category.name}
                         </button>
                     ))}
+                    <Link
+                        to="/"
+                        className="py-2 px-4 text-sm font-medium rounded bg-green-600 text-white hover:bg-green-700"
+                    >
+                        HOME
+                    </Link>
                 </div>
 
                 {/* Blog Posts */}
                 <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {filteredPosts.map((post) => (
-                        <PostCard key={post.id} {...post} />
+                        <div key={post.id} className="bg-gray-100 p-4 rounded-lg shadow-md">
+                            <Link to={post.path}>
+                                <img
+                                    src={post.imageUrl}
+                                    alt={post.title}
+                                    className="w-full h-48 object-cover rounded-lg"
+                                />
+                                <h3 className="mt-4 text-lg font-semibold text-gray-900 hover:text-green-600">
+                                    {post.title}
+                                </h3>
+                                <p className="mt-2 text-sm text-gray-600">{post.description}</p>
+                                <p className="mt-2 text-xs text-gray-500">{post.date}</p>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>
