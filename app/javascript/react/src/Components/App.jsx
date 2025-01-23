@@ -52,6 +52,7 @@ import { UserProvider, useCurrentUser } from '../userProvider';
 import BeforeAndAfter from "../Features/BeforeAndAfter/BeforeAndAfter";
 import BlogIndex from "../Features/Blog/BlogIndex";
 import HistoryOfElevators from "../Features/Blog/articles/HistoryOfElevators";
+import FiveEssentialStepsElevatorStops from "../Features/Blog/articles/ElevatorSafety";
 
 
 
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
   {
     path: '/elevate-philly/philly-local-life/history-of-elevators',
     element: <HistoryOfElevators />
+  },
+  {
+    path: '/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops',
+    element: <FiveEssentialStepsElevatorStops />
   },
 
   { path: '/calendar', element: <Calendar /> },

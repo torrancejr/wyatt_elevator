@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const categories = [
     { name: "All", value: "all" },
     { name: "Philly Local Life", value: "philly-local-life" },
-    { name: "Maintenance & Safety", value: "maintenance-safety" },
+    { name: "Maintenance & Safety", value: "maintenance-and-safety" },
     { name: "Technology Trends", value: "technology-trends" },
     { name: "Business Insights", value: "business-insights" },
 ];
@@ -12,6 +12,15 @@ const categories = [
 const posts = [
     {
         id: 2,
+        title: "Five Essential Steps to Take if Your Elevator Suddenly Halts",
+        description: "Learn the critical actions to take when your elevator unexpectedly stops working, ensuring safety and peace of mind.",
+        imageUrl: "https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevator-safety.webp",
+        date: "2025-01-10",
+        category: "maintenance-and-safety",
+        path: "/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops",
+    },
+    {
+        id: 1,
         title: "The History of Elevators in Philadelphia",
         description: "Explore how elevators shaped Philadelphia's skyline and historic buildings.",
         imageUrl: "https://wyatt-elevator.s3.us-east-1.amazonaws.com/history-of-elevators.webp",
