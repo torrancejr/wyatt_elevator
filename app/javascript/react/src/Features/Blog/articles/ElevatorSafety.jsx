@@ -26,7 +26,7 @@ export default function FiveEssentialStepsElevatorStops() {
                 />
                 <meta
                     property="og:url"
-                    content="https://www.wyattelevator.com/blog/five-essential-steps-elevator-stops"
+                    content="https://www.wyattelevator.com/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops"
                 />
                 <meta property="og:type" content="article" />
 

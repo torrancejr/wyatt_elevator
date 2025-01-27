@@ -53,6 +53,7 @@ import BeforeAndAfter from "../Features/BeforeAndAfter/BeforeAndAfter";
 import BlogIndex from "../Features/Blog/BlogIndex";
 import HistoryOfElevators from "../Features/Blog/articles/HistoryOfElevators";
 import FiveEssentialStepsElevatorStops from "../Features/Blog/articles/ElevatorSafety";
+import ElevatorUpgrade2025 from "../Features/Blog/articles/ElevatorUpgrade2025";
 
 
 
@@ -76,14 +77,9 @@ const router = createBrowserRouter([
   },
   // Blog Index and Categories
   { path: '/elevate-philly', element: <BlogIndex /> }, // Blog Index Page
-  {
-    path: '/elevate-philly/philly-local-life/history-of-elevators',
-    element: <HistoryOfElevators />
-  },
-  {
-    path: '/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops',
-    element: <FiveEssentialStepsElevatorStops />
-  },
+  { path: '/elevate-philly/philly-local-life/history-of-elevators', element: <HistoryOfElevators /> },
+  { path: '/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops', element: <FiveEssentialStepsElevatorStops /> },
+  { path: '/elevate-philly/business-insights/philadelphia-businesses-5-signs-elevator-upgrade', element: <ElevatorUpgrade2025 /> },
 
   { path: '/calendar', element: <Calendar /> },
   { path: '/login', element: <Login /> },

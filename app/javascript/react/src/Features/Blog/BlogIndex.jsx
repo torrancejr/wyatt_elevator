@@ -11,6 +11,15 @@ const categories = [
 
 const posts = [
     {
+        id: 3,
+        title: "Philadelphia Businesses: 5 Signs Your Elevator Needs an Upgrade",
+        description: "Discover five clear indicators that your Philadelphia-area commercial elevator may need an upgrade. Learn how timely modernizations can enhance safety, efficiency, and overall building value.",
+        imageUrl: "https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevator-upgrade-2025.webp",
+        date: "2025-01-27",
+        category: "business-insights",
+        path: "/elevate-philly/business-insights/philadelphia-businesses-5-signs-elevator-upgrade"
+    },
+    {
         id: 2,
         title: "Five Essential Steps to Take if Your Elevator Suddenly Halts",
         description: "Learn the critical actions to take when your elevator unexpectedly stops working, ensuring safety and peace of mind.",
