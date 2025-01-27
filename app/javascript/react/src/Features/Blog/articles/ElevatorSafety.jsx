@@ -1,8 +1,54 @@
 import React from "react";
 import Header from "../../Header.jsx";
+import { Helmet } from "react-helmet";
 
 export default function FiveEssentialStepsElevatorStops() {
     return (
+        <>
+            <Helmet>
+                <title>Five Essential Steps if Your Elevator Halts | Wyatt Elevator</title>
+                <meta
+                    name="description"
+                    content="Learn five critical actions to take immediately if your elevator stops to ensure passenger safety."
+                />
+                {/* Open Graph tags (visible only if JavaScript is executed) */}
+                <meta
+                    property="og:title"
+                    content="Five Essential Steps if Your Elevator Halts"
+                />
+                <meta
+                    property="og:description"
+                    content="Learn five critical actions to take immediately if your elevator stops..."
+                />
+                <meta
+                    property="og:image"
+                    content="https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevator-safety.webp"
+                />
+                <meta
+                    property="og:url"
+                    content="https://www.wyattelevator.com/elevate-philly/maintenance-and-safety/five-essential-steps-if-elevator-stops"
+                />
+                <meta property="og:type" content="article" />
+
+                {/* Optional: JSON-LD for Google Rich Snippets */}
+                <script type="application/ld+json">
+                    {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Five Essential Steps if Your Elevator Halts",
+              "author": "Wyatt Elevator",
+              "datePublished": "2025-01-10",
+              "image": "https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevator-safety.webp",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Wyatt Elevator"
+              },
+              "description": "An unexpected elevator stoppage is uncommon, yet it’s best to be informed..."
+            }
+          `}
+                </script>
+            </Helmet>
         <div className="bg-white py-16">
             <Header />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -194,5 +240,6 @@ export default function FiveEssentialStepsElevatorStops() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
