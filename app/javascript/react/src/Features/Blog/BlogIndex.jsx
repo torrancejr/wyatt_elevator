@@ -11,6 +11,15 @@ const categories = [
 
 const posts = [
     {
+        id: 4,
+        title: "The Ultimate Guide to Elevator Maintenance and Modernization",
+        description: "Learn the importance of regular elevator maintenance and modernization. Discover how routine inspections, timely upgrades, and expert services keep your lifts safe, efficient, and reliable.",
+        imageUrl: "https://wyatt-elevator.s3.us-east-1.amazonaws.com/elevator-maintenance-modernization.webp",
+        date: "2025-02-04",
+        category: "maintenance-and-safety",
+        path: "/elevate-philly/maintenance-and-safety/elevator-maintenance-modernization-guide",
+    },
+    {
         id: 3,
         title: "Philadelphia Businesses: 5 Signs Your Elevator Needs an Upgrade",
         description: "Discover five clear indicators that your Philadelphia-area commercial elevator may need an upgrade. Learn how timely modernizations can enhance safety, efficiency, and overall building value.",
@@ -51,6 +60,13 @@ export default function BlogIndex() {
 
     return (
         <div className="bg-white py-16">
+            <div className="absolute top-4 left-4">
+                <img
+                    className="h-16 w-auto"
+                    src="https://wyatt-elevator.s3.amazonaws.com/wyattlogo-sm.jpg"
+                    alt=""
+                />
+            </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Header */}
                 <div className="mx-auto max-w-7xl text-center">
@@ -60,7 +76,8 @@ export default function BlogIndex() {
                         className="mx-auto w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[600px] h-auto"
                     />
                     <p className="mt-4 text-lg text-gray-600">
-                        Insights, updates, and local stories about elevators, technology, and the Philadelphia community.
+                        Insights, updates, and local stories about elevators, technology, and the Philadelphia
+                        community.
                     </p>
                 </div>
 
@@ -104,7 +121,8 @@ export default function BlogIndex() {
                         </button>
 
                         {dropdownOpen && (
-                            <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-md border border-gray-200 z-10">
+                            <div
+                                className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-md border border-gray-200 z-10">
                                 {categories
                                     .filter((category) => category.value !== "all") // Exclude "All"
                                     .map((category) => (
